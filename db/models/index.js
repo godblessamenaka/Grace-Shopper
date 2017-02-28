@@ -10,4 +10,4 @@ const Review = require('./review')
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User}
+module.exports = {User, Review}
