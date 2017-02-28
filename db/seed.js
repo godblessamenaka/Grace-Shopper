@@ -52,6 +52,19 @@ const seedCategories = () => db.Promise.map([
   {name: 'Organic'}
 ], category => db.model('categories').create(category))
 
+const makeDate = function (num) {
+  let date = new Date();
+  date.setDate(date.getDate() + num);
+  return date;
+};
+
+const seedOrders = () => db.Promise.map([
+  {status: 'created', date: new Date},
+  {status: 'processing', date: makeDate(4)},
+  {status: 'cancelled', date: makeDate(20)},
+  {setDateus: 'completed', date: makeDate(25)}
+  ])
+
 db.didSync
   .then(() => db.sync({force: true}))
   .then(seedUsers)
@@ -60,5 +73,7 @@ db.didSync
   .then(categories => console.log(`Seeded ${categories.length} categories OK`))
   .then(seedProducts)
   .then(products => console.log(`Seeded ${products.length} products OK`))
+  .then(seedOrders)
+  .then(orders => console.log(`Seeded ${orders.length} orders OK`))
   .catch(error => console.error(error))
   .finally(() => db.close())
