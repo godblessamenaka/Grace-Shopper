@@ -4,6 +4,7 @@ const chalk = require('chalk')
 const Sequelize = require('sequelize')
 const app = require('APP')
 
+
 const name = (process.env.DATABASE_NAME || app.name) +
   (app.isTesting ? '_test' : '')
 
@@ -23,8 +24,6 @@ const db = module.exports = new Sequelize(url, {
 
 // pull in our models
 require('./models')
-
-//relationships
 
 // sync the db, creating it if necessary
 function sync(force = app.isTesting, retries = 0, maxRetries = 5) {
