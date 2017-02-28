@@ -10,13 +10,13 @@ const OrderLines = db.define('orderLines', {
   },
   quantity: {
     type: Sequelize.INTEGER
+  },
+  totalPrice: {
+      type: Sequelize.VIRTUAL,
+      get: function(){
+          return this.getDataValue('price') * this.getDataValue('quantity')
+      }
   }
-}, {
-    instanceMethode: {
-        totalPrice: function(){
-            return this.price * this.quantity
-        }
-    }
 });
 
 module.exports = OrderLines;

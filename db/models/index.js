@@ -12,4 +12,8 @@ const OrderLines = require('./orderLines')
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
+Review.belongsTo(User)
+Orders.belongsTo(User)
+OrderLines.belongsTo(Orders)
+
 module.exports = {User, Review, Orders, OrderLines}

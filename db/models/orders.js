@@ -11,7 +11,7 @@ const Orders = db.define('orders', {
   date: {
     type: Sequelize.DATE
   }
-},
+}
 // {
 //     instanceMethode: {
 //         totalPrice: function(){
@@ -26,6 +26,6 @@ const Orders = db.define('orders', {
 //         }
 //     }
 // }
-);
+)
 
 module.exports = Orders;
