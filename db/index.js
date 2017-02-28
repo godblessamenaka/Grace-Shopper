@@ -24,6 +24,8 @@ const db = module.exports = new Sequelize(url, {
 // pull in our models
 require('./models')
 
+//relationships
+
 // sync the db, creating it if necessary
 function sync(force = app.isTesting, retries = 0, maxRetries = 5) {
   return db.sync({force})
