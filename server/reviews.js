@@ -22,7 +22,8 @@ module.exports = require('express').Router()
     .catch(next))
 
 // add a new review
-  .post('/', (req, res, next) =>
+  .post('/:productId', (req, res, next) =>
     Review.create(req.body)
-    .then(review => res.status(201).json(review))
+    .then(review => review.setProduct(req.params.productId))
+    .then(updatedReview => res.status(201).json(updatedReview))
     .catch(next))
