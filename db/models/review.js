@@ -6,12 +6,17 @@ const db = require('APP/db')
 
 const Review = db.define('reviews', {
   title: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
   },
   body: {
     type: Sequelize.TEXT,
+    allowNull: false,
     validate: {
-			notEmpty: true
+			notEmpty: true,
 		}
   },
   rating: {
