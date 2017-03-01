@@ -7,10 +7,12 @@ const OrderLine = require('./orderLine')
 
 const Order = db.define('orders', {
   status: {
-    type: Sequelize.ENUM('created', 'processing', 'cancelled', 'completed')
+    type: Sequelize.ENUM('created', 'processing', 'cancelled', 'completed'),
+    allowNull: false
   },
   date: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   }
 }, {
   getterMethods: {
