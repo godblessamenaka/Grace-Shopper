@@ -4,6 +4,7 @@
 const Sequelize = require('sequelize')
 const db = require('APP/db')
 
+
 const Order = db.define('orders', {
   status: {
     type: Sequelize.ENUM('created', 'processing', 'cancelled', 'completed')
@@ -11,17 +12,20 @@ const Order = db.define('orders', {
   date: {
     type: Sequelize.DATE
   },
-  totalPrice: {
-    type: Sequelize.VIRTUAL,
-    get: function () {
-      this.getOder({
-          where: {
-            orderId: this.id
-          }
-        })
-        .then((orderLines) => orderLines)
-    }
-  }
+  //WE CAN DO THIS ON THE FRONT END
+  // totalPrice: {
+  //   type: Sequelize.VIRTUAL,
+  //   get: function () {
+  //     getOrderLine({
+  //         where: {
+  //           orderId: this.id
+  //         }
+  //       })
+  //       .then((orderLines) => {
+  //       })
+  //   }
+  // }
+
 });
 
 
