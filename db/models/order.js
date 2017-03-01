@@ -3,6 +3,7 @@
 
 const Sequelize = require('sequelize')
 const db = require('APP/db')
+const OrderLine = require('./orderLine')
 
 const Order = db.define('orders', {
   status: {
@@ -10,17 +11,23 @@ const Order = db.define('orders', {
   },
   date: {
     type: Sequelize.DATE
-  },
-  totalPrice: {
-    type: Sequelize.VIRTUAL,
-    get: function () {
-      this.getOder({
-          where: {
-            orderId: this.id
-          }
-        })
-        .then((orderLines) => orderLines)
-    }
+  }
+}, {
+  getterMethods: {
+    totalPrice: function () {
+        OrderLine.findAll({
+            where: {
+              order_id: this.id
+            }
+          })
+          .then((orderLines) => {
+            if (orderLines) {
+              const total = orderLines.reduce((sum, line) => sum + line.price, 0)
+              console.log(total)
+              return total
+            }
+          })
+      }
   }
 });
 
