@@ -8,8 +8,8 @@ const User = require('./user')
 const OAuth = require('./oauth')
 
 const Review = require('./review')
-const Orders = require('./orders')
-const OrderLines = require('./orderLines')
+const Order = require('./order')
+const OrderLine = require('./orderLine')
 const Product = require('./product')
 const Category = require('./category')
 
@@ -18,14 +18,14 @@ OAuth.belongsTo(User)
 User.hasOne(OAuth)
 
 //one to many
-Orders.belongsTo(User)
+Order.belongsTo(User)
 Review.belongsTo(User, {as: 'user'})
 Review.belongsTo(Product, {as: 'product'})
-OrderLines.belongsTo(Orders, {as: 'order'})
-OrderLines.belongsTo(Product, {as: 'product'})
+OrderLine.belongsTo(Order, {as: 'order'})
+OrderLine.belongsTo(Product, {as: 'product'})
 
 //many to many
 Product.belongsToMany(Category, {through: 'ProductCategory'})
 Category.belongsToMany(Product, {through: 'ProductCategory'})
 
-module.exports = {User, Review, Orders, OrderLines, Product, Category}
+module.exports = {User, Review, Order, OrderLine, Product, Category}
