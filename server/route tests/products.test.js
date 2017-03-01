@@ -1,0 +1,6 @@
+const request = require('supertest-as-promised')
+const {expect} = require('chai')
+const db = require('APP/db')
+const Product = require('APP/db/models/product')
+const Category = require('APP/db/models/category')
+const app = require('../start')
