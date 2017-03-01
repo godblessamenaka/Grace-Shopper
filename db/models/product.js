@@ -3,7 +3,6 @@
 
 const Sequelize = require('sequelize')
 const db = require('APP/db')
-const Review = require('./review')
 
 
 const Product = db.define('products', {
@@ -43,19 +42,12 @@ const Product = db.define('products', {
 
   getterMethods: {
     averageRating: function () {
-      Review.findAll({
-        where: {product_id: this.id}
-      })
-      .then(reviews =>
-        {if (reviews){
-          const total = reviews.reduce((sum, review) => sum + review.rating, 0)
-          const length = reviews.length
-          return total / length;
-        }}
-      )
+      return 4
     }
   }
+}
 
-})
+)
+
 
 module.exports = Product
