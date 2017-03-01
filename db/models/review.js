@@ -4,14 +4,14 @@
 const Sequelize = require('sequelize')
 const db = require('APP/db')
 
-const Review = db.define('review', {
+const Review = db.define('reviews', {
   title: {
     type: Sequelize.STRING
   },
   body: {
     type: Sequelize.TEXT,
     validate: {
-			isEmpty: false
+			notEmpty: true
 		}
   },
   rating: {
