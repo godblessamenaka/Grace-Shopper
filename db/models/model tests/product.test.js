@@ -2,9 +2,9 @@
 
 const db = require('APP/db')
 const Product = require('../product')
-const {
-  expect
-} = require('chai')
+const Review = require('../review')
+const {expect} = require('chai')
+const Promise = require('bluebird')
 
 describe('Product', () => {
   //clear db before tests
@@ -86,5 +86,31 @@ describe('Product', () => {
         })
     })
   })
+
+  describe('Virtual Getter', () => {
+    it('generates an average rating for a product', () =>
+      {let creatingProduct = Product.create({
+        name: 'dummy product',
+        description: 'we check our virtual getters',
+        price: 120.25,
+        inventory: 189
+      })
+      let creatingReview = Review.bulkCreate([
+        {title: 'Love this!', body: 'Met my husband with this potion', rating: 5},
+        {title: 'Hate this!', body: 'Some creepy dude started stalking me!', rating: 1}
+      ]);
+      return Promise.all([creatingProduct, creatingReview])
+      .spread(function(createdProduct, createdReview) {
+         createdReview[0].setProduct(createdProduct)
+         createdReview[1].setProduct(createdProduct)
+      })
+      .then(function() {
+        return Product.findById(1)
+      })
+      .then(foundProduct => {
+        return foundProduct.averageRating
+      })
+    });
+  });
 
 })
