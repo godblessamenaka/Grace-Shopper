@@ -11,18 +11,17 @@ const Order = db.define('orders', {
   date: {
     type: Sequelize.DATE
   },
-  // totalPrice: {
-  //   type: Sequelize.VIRTUAL,
-  //   get: function () {
-  //     getOrderLine({
-  //         where: {
-  //           orderId: this.id
-  //         }
-  //       })
-  //       .then((orderLines) => {
-  //       })
-  //   }
-  // }
+  totalPrice: {
+    type: Sequelize.VIRTUAL,
+    get: function () {
+      this.getOder({
+          where: {
+            orderId: this.id
+          }
+        })
+        .then((orderLines) => orderLines)
+    }
+  }
 });
 
 
