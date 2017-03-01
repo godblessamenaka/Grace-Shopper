@@ -16,6 +16,7 @@ const Order = db.define('orders', {
   }
 }, {
   getterMethods: {
+    // WE CAN DO THIS ON THE FRINT END
     totalPrice: function () {
         OrderLine.findAll({
             where: {
