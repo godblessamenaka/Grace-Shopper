@@ -7,6 +7,3 @@ module.exports = require('express').Router()
     Category.findAll()
     .then(categories => res.json(categories))
     .catch(next))
-
-
-
