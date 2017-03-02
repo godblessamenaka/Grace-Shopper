@@ -2,9 +2,9 @@
 
 const request = require('supertest-as-promised')
 const {expect} = require('chai')
-require('APP/db')
-require('APP/db/models/user')
-const app = require('./start')
+const db = require('APP/db')
+const User = require('APP/db/models/user')
+const app = require('../start')
 
 describe('/api/users', () => {
   describe('when not logged in', () => {

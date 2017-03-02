@@ -5,17 +5,20 @@ const Sequelize = require('sequelize')
 const db = require('APP/db')
 const OrderLine = require('./orderLine')
 
+
 const Order = db.define('orders', {
   status: {
     type: Sequelize.ENUM('created', 'processing', 'cancelled', 'completed'),
     allowNull: false
   },
   date: {
+
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
   }
 }, {
   getterMethods: {
+    //WE CAN DO THIS ON THE FRONT END
     totalPrice: function () {
         OrderLine.findAll({
             where: {
@@ -31,6 +34,7 @@ const Order = db.define('orders', {
           })
       }
   }
+
 });
 
 
