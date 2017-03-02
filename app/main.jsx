@@ -6,6 +6,7 @@ import {connect, Provider} from 'react-redux'
 
 import store from './store'
 import Jokes from './components/Jokes'
+import Header from './components/Header'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 
@@ -24,10 +25,7 @@ const ExampleApp = connect(
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={ExampleApp}>
-        <IndexRedirect to="/jokes" />
-        <Route path="/jokes" component={Jokes} />
-      </Route>
+      <Route path="/" component={Header} />
     </Router>
   </Provider>,
   document.getElementById('main')
