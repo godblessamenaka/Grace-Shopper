@@ -29,7 +29,7 @@ module.exports = require('express').Router()
 
 //Revise finding all products for query.
 
-// .get('/', (req, res, next) => 
+// .get('/', (req, res, next) =>
 // 	Product.findAll({
 // 		where: {
 // 			name: {
