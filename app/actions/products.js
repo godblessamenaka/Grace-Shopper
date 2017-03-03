@@ -7,10 +7,10 @@ export const CREATE_PRODUCT = 'CREATE_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
 /* ------------   ACTION CREATORS     ------------------ */
-export const getProducts = (products) => ({ type: GET_PRODUCTS, receivedProducts: products});
-export const getProduct = (product) => ({ type: GET_PRODUCT, receivedProduct: product});
-export const createProduct = (product) => ({ type: CREATE_PRODUCT, productToCreate: product});
-export const changeProduct = (product) => ({ type: UPDATE_PRODUCT, productToUpdate: product});
+const getProducts = (products) => ({ type: GET_PRODUCTS, receivedProducts: products});
+const getProduct = (product) => ({ type: GET_PRODUCT, receivedProduct: product});
+const createProduct = (product) => ({ type: CREATE_PRODUCT, productToCreate: product});
+const changeProduct = (product) => ({ type: UPDATE_PRODUCT, productToUpdate: product});
 
 /* ------------       DISPATCHERS     ------------------ */
 export const fetchProducts = () => dispatch => {
