@@ -8,6 +8,7 @@ export default class Navbar extends Component {
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
               <ul className="nav navbar-nav">
+                <li><Link to='/products'>All</Link></li>
               {categories && categories.map((category) => {
                 return <li key={category.id}><Link to="#">{category.name}</Link></li>
               })}
