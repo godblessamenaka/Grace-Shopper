@@ -9,7 +9,7 @@ function MultipleProducts (props){
       {
         products && products.map(product => (
           <div className="col-xs-4" key={product.id}>
-            <Link className="thumbnail" to={`/products/${product.id}`} />
+            <Link className="thumbnail" to={`/products/${product.id}`} >
               <img src={ product.image } />
               <h5>
                 <span>{ product.name }</span>
@@ -20,6 +20,7 @@ function MultipleProducts (props){
               <h5>
                 <span>{ product.price }</span>
               </h5>
+            </Link>
           </div>
       ))}
       </div>
