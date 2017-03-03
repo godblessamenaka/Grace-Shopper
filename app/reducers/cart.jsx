@@ -1,4 +1,4 @@
-import { GET_CART, UPDATE_CART} from '../actions/carts'
+import { GET_CART, UPDATE_CART} from '../actions/cart'
 
 const initialState = [];
 
