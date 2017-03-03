@@ -1,18 +1,35 @@
 import { GET_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT} from '../actions/products'
 
-const productReducer = (state = [], action) => {
+let initialState = {
+  allProducts: [],
+  currentProduct: {}
+}
+const productReducer = (state = initialState, action) => {
+  let newState = Object.assign({}, state)
+
   switch (action.type) {
     case GET_PRODUCTS:
-      return action.receivedProducts
+      newState.allProducts =  action.receivedProducts
+      break
+
     case GET_PRODUCT:
-      return action.receivedProduct
+      newState.currentProduct = action.receivedProduct
+      break
+
     case CREATE_PRODUCT:
-      return action.productToCreate
+      newState.allProducts = [action.productToCreate, ...newState.allProducts]
+      break
+
     case UPDATE_PRODUCT:
-      return action.productToUpdate
+      newState.allProducts =  newState.allProducts.map(product => (
+        action.productToUpdate.id === product.id ? action.productToUpdate : product
+      ));
+      break
+
     default:
       return state
   }
+  return newState;
 }
 
 export default productReducer;
