@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 
 export default class Navbar extends Component {
   render () {
+    console.log(this.props)
     const categories = this.props.categories;
     return (
         <nav className ="navbar navbar-default">
