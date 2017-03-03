@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-
+import NavbarContainer from '../containers/NavbarContainer'
 
 export default class Header extends Component {
-  render (props) {
+  render () {
     return (
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
@@ -19,7 +19,8 @@ export default class Header extends Component {
               </ul>
             </div>
           </div>
-		</nav>
+        <NavbarContainer />
+		  </nav>
     )
   }
 }

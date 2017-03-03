@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router';
 
 export default class Navbar extends Component {
-  render (props) {
+  render () {
+    const categories = this.props.categories;
     return (
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
-                <li><a href="#">Love</a></li>
-                <li><a href="#">Luck</a></li>
-                <li><a href="#">Etc.</a></li>
+              {categories && categories.map((category) => {
+                return <li key={category.id}><Link to="#">{category.name}</Link></li>
+              })}
               </ul>
             </div>
-          </div>
-    </nav>
+        </nav>
     )
   }
 }

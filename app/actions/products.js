@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Products
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT = 'GET_PRODUCT';
@@ -9,3 +11,16 @@ export const getProduct = (product) => ({ type: GET_PRODUCT, receivedProduct: pr
 export const createProduct = (product) => ({ type: CREATE_PRODUCT, productToCreate: product});
 export const updateProduct = (product) => ({ type: UPDATE_PRODUCT, productToUpdate: product});
 
+//thunk action creators
+export const fetchProducts = () => {
+    return (dispatch) => {
+        axios.get('/api/products')
+        .then((res) => res.data)
+        .then((products) => {
+            dispatch(getProducts(products));
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+    };
+};
