@@ -11,15 +11,6 @@ export const createUser = (user) => ({ type: CREATE_USER, userToCreate: user});
 export const deleteUser = (user) => ({ type: DELETE_USER, userToDelete: user});
 export const updateUser = (user) => ({ type: UPDATE_USER, userToUpdate: user});
 
-// Reviews
-export const GET_REVIEWS = 'GET_REVIEWS';
-export const CREATE_REVIEWS = 'CREATE_REVIEWS';
-export const DELETE_REVIEWS = 'DELETE_REVIEWS';
-
-export const getReviews = (reviews) => ({ type: GET_REVIEWS, receivedReviews: reviews});
-export const createReviews = (reviews) => ({ type: CREATE_REVIEWS, reviewsToCreate: reviews});
-export const deleteReviews = (reviews) => ({ type: DELETE_REVIEWS, reviewsToDelete: reviews});
-
 // Auth Users
 export const GET_USER = 'GET_USER';
 export const SET_USER = 'SET_USER';
