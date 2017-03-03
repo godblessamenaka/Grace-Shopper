@@ -1,8 +1,7 @@
-import { GET_REVIEWS, GET_REVIEW, CREATE_REVIEW, DELETE_REVIEW, UPDATE_REVIEW} from '../actions/reviews'
+import { GET_REVIEWS, CREATE_REVIEW, DELETE_REVIEW} from '../actions/reviews'
 
 const initialState = {
   allReviews: [],
-  selectedReview: {}
 }
 
 const reviewReducer = (state = initialState, action) => {
