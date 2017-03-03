@@ -29,7 +29,8 @@ class LandingPageContainer extends Component {
 
     return (
       <div>
-        <LandingPage handleChange={this.state.handleChange} />
+        <img src="" alt="" />
+        <LandingPage handleChange={this.handleChange} inputValue={inputValue} />
         <MultipleProducts products={filteredProducts} />
       </div>
     );
