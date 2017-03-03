@@ -1,23 +1,15 @@
 import { GET_REVIEWS, CREATE_REVIEW, DELETE_REVIEW} from '../actions/reviews'
 
-const initialState = {
-  allReviews: [],
-}
+const initialState = []
 
 const reviewReducer = (state = initialState, action) => {
-  const newState = Object.assign({}, state)
-
   switch (action.type) {
     case GET_REVIEWS:
-      newState.allReviews = action.receivedReviews
-      break;
+      return action.receivedReviews
     case CREATE_REVIEW:
-      newState.Reviews = [action.reviewToCreate, ...newState.Reviews]
-      break;
+      return [action.reviewToCreate, ...state]
     case DELETE_REVIEW:
-      newState.allReviews = newState.allReviews.filter(review => review.id !== action.reviewToDelete.id)
-      break;
-
+      return state.filter(review => review.id !== action.reviewToDelete.id)
     default:
       return state
   }
