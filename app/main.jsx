@@ -12,6 +12,7 @@ import Header from './components/Header'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
+import LandingPageContainer from './containers/LandingPageContainer'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -34,6 +35,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Header} onEnter={onAppEnter} >
+        <Route path="/landing" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={MultipleProductsContainer} />
         <Route path="/cart" component={Header} />
