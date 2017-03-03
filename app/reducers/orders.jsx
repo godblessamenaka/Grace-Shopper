@@ -19,7 +19,7 @@ const orderReducer = (state = initialState, action) => {
       newState.Orders = [action.orderToCreate, ...newState.Orders]
       break;
     case DELETE_ORDER:
-      newState.selectedOrder = newState.allOrders.filter(order => order.id !== action.orderToDelete.id)
+      newState.allOrders = newState.allOrders.filter(order => order.id !== action.orderToDelete.id)
       break;
     case UPDATE_ORDER:
       newState.selectedOrder = newState.allOrders.map(order => (
