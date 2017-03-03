@@ -4,6 +4,7 @@ import NavbarContainer from '../containers/NavbarContainer'
 export default class Header extends Component {
   render () {
     return (
+      <div>
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
             <div className="navbar-header">
@@ -21,6 +22,8 @@ export default class Header extends Component {
           </div>
         <NavbarContainer />
 		  </nav>
+      {this.props.children}
+    </div>
     )
   }
 }

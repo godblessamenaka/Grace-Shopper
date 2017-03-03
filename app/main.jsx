@@ -26,18 +26,22 @@ const ExampleApp = connect(
 )
 
 const onAppEnter = function(){
-  fetchCategories()(store.dispatch);
+    fetchCategories()(store.dispatch)
+    fetchProducts()(store.dispatch)
 };
-
-const MultipleProductsEnter = function(){
-  fetchProducts()(store.dispatch);
-}
 
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" onEnter={onAppEnter} component={Header} />
-      <Route path="/products" onEnter={MultipleProductsEnter} component={MultipleProductsContainer} />
+      <Route path="/" component={Header} onEnter={onAppEnter} >
+        <Route path="/products" component={MultipleProductsContainer} />
+        <Route path="/products/:productId" component={MultipleProductsContainer} />
+        <Route path="/cart" component={Header} />
+        <Route path="/register" component={Header} />
+        <Route path="/signup" component={Header} />
+        <Route path="/user/:userId" component={Header} />
+        <Route path="/adminpanel" component={Header} />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('main')
