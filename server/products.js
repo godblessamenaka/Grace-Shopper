@@ -17,7 +17,7 @@ module.exports = require('express').Router()
     .catch(next))
 
 // get products by category
-.get('/:categoryId', (req, res, next) =>
+.get('/category/:categoryId', (req, res, next) =>
 	Category.getProducts({
 		where: {
 			category_id: req.params.categoryId
@@ -38,3 +38,16 @@ module.exports = require('express').Router()
 // 		}
 // 	})
 // 	)
+
+//admin only
+.put('/:productId', (req, res, next) =>
+    Product.findById(req.params.productId)
+    .then(product => product.update(req.body))
+	.then(updatedProduct => res.json(updatedProduct))
+    .catch(next))
+
+//admin only
+.post('/', (req, res, next) =>
+    Product.create(req.body)
+    .then(newProduct => res.json(newProduct))
+    .catch(next))
