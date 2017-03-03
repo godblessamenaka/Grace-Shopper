@@ -33,17 +33,6 @@ export const createOrder = (order) => ({ type: CREATE_ORDER, orderToCreate: orde
 export const deleteOrder = (order) => ({ type: DELETE_ORDER, orderToDelete: order});
 export const updateOrder = (order) => ({ type: UPDATE_ORDER, orderToUpdate: order});
 
-// Categories
-export const GET_CATEGORIES = 'GET_CATEGORIES';
-export const GET_CATEGORY = 'GET_CATEGORY';
-export const CREATE_CATEGORY = 'CREATE_CATEGORY';
-export const DELETE_CATEGORY = 'DELETE_CATEGORY';
-
-export const getCategories = (categories) => ({ type: GET_CATEGORIES, receivedCategories: categories});
-export const getCategory = (category) => ({ type: GET_CATEGORY, receivedCategory: category});
-export const createCategory = (category) => ({ type: CREATE_CATEGORY, categoryToCreate: category});
-export const deleteCategory = (category) => ({ type: DELETE_CATEGORY, categoryToDelete: category});
-
 // Auth Users
 export const GET_USER = 'GET_USER';
 export const SET_USER = 'SET_USER';

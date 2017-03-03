@@ -1,6 +1,6 @@
 import { GET_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT} from '../actions/products'
 
-const productReducer = (state = null, action) => {
+const productReducer = (state = [], action) => {
   switch (action.type) {
     case GET_PRODUCTS:
       return action.receivedProducts

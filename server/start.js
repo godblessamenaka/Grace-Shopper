@@ -48,8 +48,8 @@ module.exports = app
   .use(passport.session())
 
   // Serve static files from ../public
-  .use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
-  .use('/jquery', express.static(path.join(__dirname, '/node_modules/jquery/dist')))
+  .use('/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')))
+  .use('/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')))
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api - ./api also requires in ../db, which syncs with our database
