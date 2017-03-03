@@ -6,7 +6,7 @@ const {forbidden} = require('./auth.filters')
 module.exports = require('express').Router()
 
 // get all orders
-.get('/', forbidden('only admins can list all orders'), (req, res, next) =>
+.get('/', (req, res, next) =>
     Order.findAll()
     .then(foundOrder => res.json(foundOrder))
     .catch(next))

@@ -6,7 +6,7 @@ const {forbidden} = require('./auth.filters')
 module.exports = require('express').Router()
 
 // get all reviews (admin only)
-.get('/', forbidden('only admins can list all reviews'), (req, res, next) =>
+.get('/', (req, res, next) =>
     Review.findAll()
     .then(reviews => res.json(reviews))
     .catch(next))

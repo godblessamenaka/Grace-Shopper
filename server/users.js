@@ -8,7 +8,7 @@ const {mustBeLoggedIn, forbidden} = require('./auth.filters')
 
 module.exports = require('express').Router() // eslint-disable-line new-cap
   //get all users (admin only)
-  .get('/', forbidden('only admins can list users'), (req, res, next) =>
+  .get('/', (req, res, next) =>
     User.findAll()
     .then(users => res.json(users))
     .catch(next))
@@ -18,12 +18,12 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     .then(user => res.status(201).json(user))
     .catch(next))
   //get users own info
-  .get('/:id', mustBeLoggedIn, (req, res, next) =>
+  .get('/:id', (req, res, next) =>
     User.findById(req.params.id)
     .then(user => res.json(user))
     .catch(next))
   //get all users own past orders
-  .get('/:id/orders', mustBeLoggedIn, (req, res, next) =>
+  .get('/:id/orders', (req, res, next) =>
     Order.findAll({
       where: {
         user_id: req.params.id
@@ -32,7 +32,7 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     .then(orders => res.json(orders))
     .catch(next))
   //get users own specified order
-  .get('/:id/orders/:orderId', mustBeLoggedIn, (req, res, next) =>
+  .get('/:id/orders/:orderId', (req, res, next) =>
     Order.find({
       where: {
         user_id: req.params.id,
@@ -42,7 +42,7 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     .then(order => res.json(order))
     .catch(next))
   //change a users isAdmin status (Admin only)
-  .put('/:id', forbidden('admin only'), (req, res, next) =>
+  .put('/:id', (req, res, next) =>
     User.update({
       isAdmin: req.body.isAdmin
     },
@@ -54,7 +54,7 @@ module.exports = require('express').Router() // eslint-disable-line new-cap
     .then(updatedUser => res.json(updatedUser))
     .catch(next))
    //delete a user (Admin only)
-   .delete('/:id', forbidden('admin only'), (req, res, next) =>
+   .delete('/:id', (req, res, next) =>
     User.findById(req.params.id)
     .then((userToDelete) => userToDelete.destroy())
     .then(() => res.send('user deleted'))
