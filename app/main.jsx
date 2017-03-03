@@ -26,11 +26,8 @@ const ExampleApp = connect(
 )
 
 const onAppEnter = function(){
-    const p1 = fetchCategories()(store.dispatch)
-    const p2 = fetchProducts()(store.dispatch)
-
-  Promise.all([p1, p2])
-  .then(responses => responses.map(res => res.data))
+    fetchCategories()(store.dispatch)
+    fetchProducts()(store.dispatch)
 };
 
 render(
