@@ -7,3 +7,8 @@ module.exports = require('express').Router()
     Category.findAll()
     .then(categories => res.json(categories))
     .catch(next))
+
+.post('/', (req, res, next) =>
+    Category.create(req.body)
+    .then(newCat => res.json(newCat))
+    .catch(next))
