@@ -7,9 +7,12 @@ import {connect, Provider} from 'react-redux'
 import store from './store'
 import {fetchCategories} from './actions/categories'
 import {fetchProducts} from './actions/products'
+import {fetchReviews} from './actions/reviews'
+
 import Jokes from './components/Jokes'
 import Header from './components/Header'
 import Login from './components/Login'
+import ReviewsContainer from './containers/ReviewsContainer'
 import WhoAmI from './components/WhoAmI'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 
@@ -28,6 +31,7 @@ const ExampleApp = connect(
 const onAppEnter = function(){
     fetchCategories()(store.dispatch)
     fetchProducts()(store.dispatch)
+    fetchReviews()(store.dispatch)
 };
 
 render(
@@ -41,6 +45,7 @@ render(
         <Route path="/signup" component={Header} />
         <Route path="/user/:userId" component={Header} />
         <Route path="/adminpanel" component={Header} />
+        <Route path="/reviews" component={ReviewsContainer} />
       </Route>
     </Router>
   </Provider>,

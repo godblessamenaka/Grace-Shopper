@@ -8,7 +8,8 @@ module.exports = require('express').Router()
 // get all reviews (admin only)
 .get('/', (req, res, next) =>
     Review.findAll()
-    .then(reviews => res.json(reviews))
+    .then(reviews => {
+      res.json(reviews)})
     .catch(next))
 
 // get all reviews for a product by productId
