@@ -4,7 +4,7 @@ export default function Footer () {
   return (
     <footer className="footer-distributed col-xs-12">
       <div className="footer-left">
-        <h3>Company<span>logo</span></h3>
+        <h3>Alchem<span>Etsy</span></h3>
         <p className="footer-links">
           <a href="#">Home</a>
           ·
