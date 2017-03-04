@@ -11,21 +11,26 @@ const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ORDERS:
       newState.allOrders = action.receivedOrders
-      break;
+      break
+
     case GET_ORDER:
       newState.selectedOrder = action.receivedOrder
-      break;
+      break
+
     case CREATE_ORDER:
       newState.allOrders = [action.orderToCreate, ...newState.allOrders]
-      break;
+      break
+
     case DELETE_ORDER:
       newState.allOrders = newState.allOrders.filter(order => order.id !== action.orderToDelete.id)
-      break;
+      break
+
     case UPDATE_ORDER:
       newState.selectedOrder = newState.allOrders.map(order => (
         action.order.id === order.id ? action.orderToUpdate : order
-      ));
-      break;
+      ))
+      break
+      
     default:
       return state
   }
