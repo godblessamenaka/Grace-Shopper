@@ -8,7 +8,7 @@ import store from './store'
 import {fetchCategories} from './actions/categories'
 import {fetchProducts} from './actions/products'
 import Jokes from './components/Jokes'
-import Header from './components/Header'
+import App from './components/App'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
@@ -34,15 +34,15 @@ const onAppEnter = function(){
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Header} onEnter={onAppEnter} >
+      <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/landing" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={MultipleProductsContainer} />
-        <Route path="/cart" component={Header} />
-        <Route path="/register" component={Header} />
-        <Route path="/signup" component={Header} />
-        <Route path="/user/:userId" component={Header} />
-        <Route path="/adminpanel" component={Header} />
+        <Route path="/cart" component={App} />
+        <Route path="/register" component={App} />
+        <Route path="/signup" component={App} />
+        <Route path="/user/:userId" component={App} />
+        <Route path="/adminpanel" component={App} />
       </Route>
     </Router>
   </Provider>,
