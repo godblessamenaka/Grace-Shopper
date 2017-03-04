@@ -16,7 +16,7 @@ const orderReducer = (state = initialState, action) => {
       newState.selectedOrder = action.receivedOrder
       break;
     case CREATE_ORDER:
-      newState.Orders = [action.orderToCreate, ...newState.allOrders]
+      newState.allOrders = [action.orderToCreate, ...newState.allOrders]
       break;
     case DELETE_ORDER:
       newState.allOrders = newState.allOrders.filter(order => order.id !== action.orderToDelete.id)
