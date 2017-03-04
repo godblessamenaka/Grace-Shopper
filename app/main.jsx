@@ -35,7 +35,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter} >
-        <Route path="/landing" component={LandingPageContainer} />
+        <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={MultipleProductsContainer} />
         <Route path="/cart" component={App} />
@@ -43,6 +43,7 @@ render(
         <Route path="/signup" component={App} />
         <Route path="/user/:userId" component={App} />
         <Route path="/adminpanel" component={App} />
+        <IndexRedirect to="/home" />
       </Route>
     </Router>
   </Provider>,
