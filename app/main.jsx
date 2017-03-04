@@ -38,11 +38,11 @@ render(
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={MultipleProductsContainer} />
-        <Route path="/cart" component={App} />
-        <Route path="/register" component={App} />
-        <Route path="/signup" component={App} />
-        <Route path="/user/:userId" component={App} />
-        <Route path="/adminpanel" component={App} />
+        <Route path="/cart" component={Jokes} />
+        <Route path="/register" component={Jokes} />
+        <Route path="/signup" component={Jokes} />
+        <Route path="/user/:userId" component={Jokes} />
+        <Route path="/adminpanel" component={Jokes} />
         <IndexRedirect to="/home" />
       </Route>
     </Router>
