@@ -9,7 +9,8 @@ constructor(){
 
 onClick(event){
   event.preventDefault()
-  this.props.fetchCategory(event.target.value)
+  console.log(event.target.value)
+  if (event.target.value) this.props.fetchCategory(event.target.value)
 }
 
   render () {

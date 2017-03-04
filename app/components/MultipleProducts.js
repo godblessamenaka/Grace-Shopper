@@ -2,7 +2,17 @@ import React from 'react';
 import {Link} from 'react-router';
 
 function MultipleProducts (props){
-  const products = props.products;
+  let products = []
+  if (props.selectedCategory.id && props.products){
+    products = props.products.map((product) => {
+      product.categories.filter(function(category){
+        return category.id === props.selectedCategory.id
+      })
+    })
+  }
+  else {
+    products = props.products
+  }
 
     return (
       <div>

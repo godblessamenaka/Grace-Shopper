@@ -8,8 +8,8 @@ module.exports = require('express').Router()
     .then(categories => res.json(categories))
     .catch(next))
 
-.get('/:id', (req,res,next) =>
-    Category.findById(req.params.id)
+.get('/:catId', (req,res,next) =>
+    Category.findById(req.params.catId)
     .then(category => res.json(category))
     .catch(next))
 
