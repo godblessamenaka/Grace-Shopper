@@ -22,7 +22,6 @@ export default class Header extends Component {
           </div>
         <NavbarContainer />
 		  </nav>
-      {this.props.children}
     </div>
     )
   }
