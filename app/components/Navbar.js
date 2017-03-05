@@ -3,8 +3,13 @@ import {Link} from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
-const style = {
-  'margin-right': '10px'
+const buttonStyle = {
+  marginRight: '10px',
+  marginBottom: '0px'
+}
+
+const listStyle = {
+  margin: 'auto'
 }
 
 export default class Navbar extends Component {
@@ -12,14 +17,14 @@ export default class Navbar extends Component {
     console.log(this.props)
     const categories = this.props.categories;
     return (
-      <nav className ="navbar navbar-default">
+      <nav className ="">
         <Toolbar>
-          <ToolbarGroup>
-            <div className ="container-fluid">
+          <ToolbarGroup style={listStyle}>
+            <div className ="container-fluid" >
               <ul className="nav navbar-nav">
-                <RaisedButton style={style}><Link to='/products'>All</Link></RaisedButton>
+                <RaisedButton style={buttonStyle}><Link to="/products">All</Link></RaisedButton>
               {categories && categories.map((category) => {
-                return <RaisedButton style={style} key={category.id}><Link to="#">{category.name}</Link></RaisedButton>
+                return <RaisedButton style={buttonStyle} key={category.id}><Link to="#">{category.name}</Link></RaisedButton>
               })}
               </ul>
             </div>
