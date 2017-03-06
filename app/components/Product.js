@@ -9,7 +9,6 @@ const CardExampleWithAvatar = (props) => (
       <img src={props.image} />
     </CardMedia>
     <CardTitle title={props.name} subtitle="Card subtitle" />
-    <CardText>{ props.description }</CardText>
     <CardActions>
       <span style={{margin: 10}}>$ {props.price}</span>
       <FlatButton label="Buy" />
