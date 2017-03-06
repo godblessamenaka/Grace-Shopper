@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
+import RaisedButton from 'material-ui/RaisedButton';
+import Login from '../components/Login'
 import NavbarContainer from '../containers/NavbarContainer'
+
+const buttonStyle = {
+  margin: 12,
+};
 
 export default class Header extends Component {
   render () {
@@ -13,9 +19,8 @@ export default class Header extends Component {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">My Cart</a></li>
+                <li><Login /></li>
+                <li><RaisedButton label="Cart" style={buttonStyle} /></li>
               </ul>
               </ul>
             </div>
