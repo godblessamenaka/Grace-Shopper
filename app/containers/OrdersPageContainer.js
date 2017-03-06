@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
-    currentUsersOrders: state.orders.currentUsersOrders
+    currentUsersOrders: state.orders.currentUsersOrders,
+    allProducts: state.products.allProducts
   }
 }
 

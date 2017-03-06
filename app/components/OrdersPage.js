@@ -1,26 +1,21 @@
-import React, {Component} from 'react';
-import Promise from 'bluebird';
-import axios from 'axios';
+import React from 'react';
 
-export default class OrdersPage extends Component {
-constructor(props){
-  super(props)
-  this.orderLines = [];
-}
 
-componentDidUpdate(){
+export default function OrdersPage(props) {
 
-    Promise.map(this.props.currentUsersOrders, (order) => {
-        axios.get(`/api/orderlines/${order.id}`)
-        .then((lines) => {this.orderLines.push(lines.data)})
-    })
-
-}
-
-render(){
-
-    console.log('ol:', this.orderLines)
-    return <div><p>Hi</p></div>
-    }
+    const orders = props.currentUsersOrders
+    return <div>
+        {orders && orders.map((order) => {
+            return (<div key={order.id}>
+                <p>{order.date}</p>
+                <p>{order.status}</p>
+                {order.orderLines && order.orderLines.map((orderLine) => {
+                    return (<div key={orderLine.id}>
+                        <p>{orderLine.price} X {orderLine.quantity} = {orderLine.totalPrice}</p>
+                    </div>)
+                })}
+            </div>)
+        })}
+    </div>
 }
 
