@@ -44,20 +44,21 @@ onClick(event){
                   labelColor="#a4c639">
                   All
                 </RaisedButton>
-              {categories && categories.map((category) => {
-                return (
-                  <RaisedButton
-                    key={category.id}
-                    value={category.id}
-                    onClick={this.onClick}
-                    style={buttonStyle}
-                    secondary={true}
-                    labelColor="white"
-                  >
-                    {category.name}
-                  </RaisedButton>
-                )
-              })}
+                {categories && categories.map((category) => {
+                  return (
+                    <RaisedButton
+                      key={category.id}
+                      value={category.id}
+                      onClick={this.onClick}
+                      style={buttonStyle}
+                      secondary={true}
+                      labelColor="white"
+                    >
+                      {category.name}
+                    </RaisedButton>
+                  )
+                })}
+              </ul>
             </div>
           </ToolbarGroup>
         </Toolbar>
