@@ -9,12 +9,10 @@ constructor(){
 
 onClick(event){
   event.preventDefault()
-  console.log(event.target.value)
   if (event.target.value) this.props.fetchCategory(event.target.value)
 }
 
   render () {
-    console.log(this.props)
     const categories = this.props.categories;
     return (
         <nav className ="navbar navbar-default">

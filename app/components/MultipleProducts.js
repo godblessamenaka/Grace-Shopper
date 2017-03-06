@@ -2,16 +2,16 @@ import React from 'react';
 import {Link} from 'react-router';
 
 function MultipleProducts (props){
-  let products = []
-  if (props.selectedCategory.id && props.products){
-    products = props.products.map((product) => {
-      product.categories.filter(function(category){
-        return category.id === props.selectedCategory.id
-      })
-    })
+  let products = [];
+  if (!props.selectedCategory.id){
+    products = props.products;
   }
   else {
-    products = props.products
+    for (var i = 0; i < props.products.length; i++){
+     products = props.products[i].categories.forEach((category) => {
+        if (category.id === props.selectedCategory.id) products.push(props.products[i]);
+      })
+    }
   }
 
     return (
