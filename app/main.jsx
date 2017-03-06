@@ -8,11 +8,12 @@ import store from './store'
 import {fetchCategories} from './actions/categories'
 import {fetchProducts} from './actions/products'
 import Jokes from './components/Jokes'
-import Header from './components/Header'
+import App from './components/App'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
+import SingleProductsPage from './components/SingleProductsPage'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -34,15 +35,16 @@ const onAppEnter = function(){
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Header} onEnter={onAppEnter} >
-        <Route path="/landing" component={LandingPageContainer} />
+      <Route path="/" component={App} onEnter={onAppEnter} >
+        <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={MultipleProductsContainer} />
-        <Route path="/cart" component={Header} />
-        <Route path="/register" component={Header} />
-        <Route path="/signup" component={Header} />
-        <Route path="/user/:userId" component={Header} />
-        <Route path="/adminpanel" component={Header} />
+        <Route path="/products/:productId" component={SingleProductsPage} />
+        <Route path="/cart" component={Jokes} />
+        <Route path="/register" component={Jokes} />
+        <Route path="/signup" component={Jokes} />
+        <Route path="/user/:userId" component={Jokes} />
+        <Route path="/adminpanel" component={Jokes} />
+        <IndexRedirect to="/home" />
       </Route>
     </Router>
   </Provider>,
