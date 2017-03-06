@@ -17,6 +17,7 @@ import Header from './components/Header'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
 import CartPage from './components/CartPage'
+import CartPageContainer from './containers/CartPageContainer'
 import SingleProductsPage from './components/SingleProductsPage'
 import SingleProductsPageContainer from './containers/SingleProductsPageContainer'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -48,7 +49,7 @@ render(
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/cart" component={CartPage} />
+        <Route path="/cart" component={CartPageContainer} />
         <Route path="/products/:productId" component={SingleProductsPageContainer} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
