@@ -2,13 +2,21 @@ import React from 'react'
 
 function Reviews (props){
   const reviews = props.reviews;
+  function makeStars(rating){
+    let stars = [];
+    for (let i = 1; i <= 5; i++){
+      if (i <= rating) stars.push(<span key = {i} className="glyphicon glyphicon-star" />)
+      else stars.push(<span  key = {i} className="glyphicon glyphicon-star-empty" />)
+    }
+    return stars
+  }
   return (
     <div>
       {
         reviews && reviews.map(review => (
-          <div className="col-xs-4" key={review.id}>
+          <div key={review.id}>
               <h5>
-                <span>{ review.rating }</span>
+                <span>{ makeStars(review.rating) }</span>
               </h5>
               <h5>
                 <span>{ review.title }</span>
