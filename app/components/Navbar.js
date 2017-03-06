@@ -18,10 +18,9 @@ constructor(){
   this.onClick = this.onClick.bind(this);
 }
 
-onClick(event){
-  event.preventDefault()
-  if (event.target.value){
-    this.props.fetchCategory(event.target.value)
+onClick(id){
+  if (id){
+    this.props.fetchCategory(id)
   }
   else {
     //if All button is hit, set selectedCategory back to empty object
@@ -38,7 +37,7 @@ onClick(event){
             <div className ="container-fluid" >
               <ul className="nav navbar-nav">
                 <RaisedButton
-                  onClick={this.onClick}
+                  onClick={() => {this.onClick()}}
                   style={buttonStyle}
                   primary={true}
                   labelColor="#a4c639">
@@ -49,7 +48,7 @@ onClick(event){
                     <RaisedButton
                       key={category.id}
                       value={category.id}
-                      onClick={this.onClick}
+                      onClick={() => {this.onClick(category.id)}}
                       style={buttonStyle}
                       secondary={true}
                       labelColor="white"
