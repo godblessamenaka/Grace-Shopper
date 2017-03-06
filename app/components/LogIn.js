@@ -36,11 +36,6 @@ const styles = {
   }
 };
 
-function handleActive(tab) {
-  alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
-}
-
-
 
 export default class Login extends React.Component {
   state = {
