@@ -13,6 +13,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
+import SingleProductsPage from './components/SingleProductsPage'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -37,7 +38,7 @@ render(
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={MultipleProductsContainer} />
+        <Route path="/products/:productId" component={SingleProductsPage} />
         <Route path="/cart" component={Jokes} />
         <Route path="/register" component={Jokes} />
         <Route path="/signup" component={Jokes} />
