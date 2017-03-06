@@ -1,7 +1,6 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -89,20 +88,7 @@ export default class Login extends React.Component {
                   <input style={styles.input} type="text" placeholder="Email" />
                   <input style={styles.input} type="text" placeholder="Password" />
                 </form>
-                <RaisedButton
-                  href=""
-                  target="_blank"
-                  secondary={true}
-                  icon={<FontIcon className="muidocs-icon-custom-github" />}
-
-                />
-                <RaisedButton
-                  href=""
-                  target="_blank"
-                  primary={true}
-                  icon={<FontIcon className="muidocs-icon-custom-github" />}
-
-                />
+                <img src="/images/oauth/btn_google_signin_light_normal_web.png" alt="" />
               </div>
             </Tab>
             <Tab label = "Register">
@@ -114,6 +100,7 @@ export default class Login extends React.Component {
                   <input style={styles.input} type="email" name="field2" placeholder="Email" />
                   <input style={styles.input} type="password" name="psw" placeholder="Password" />
                   <input style={styles.input} type="password" name="psw" placeholder="Re-enter Password" />
+                  <img src="/images/oauth/btn_google_signin_light_normal_web.png" alt="" />
                 </form>
               </div>
             </Tab>
