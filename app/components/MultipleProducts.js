@@ -5,6 +5,8 @@ import Product from '../components/Product'
 function MultipleProducts (props){
   const products = props.products;
 
+  const image = 'http://placehold.it/350x250'
+
   const style = {
     position: 'realative',
     overflow: 'hidden'
@@ -12,19 +14,19 @@ function MultipleProducts (props){
 
     return (
       <div >
-      {
-        products && products.map(product => (
-          <div className="col-xs-4" style={style} key={product.id}>
-            <Link className="thumbnail" to={`/products/${product.id}`} >
-              <Product
-                image={ product.image }
-                name={ product.name }
-                description={ product.description }
-                price={ product.price }
-              />
-            </Link>
-          </div>
-      ))}
+        {
+          products && products.map(product => (
+            <div className="col-xs-4" style={style} key={product.id}>
+              <Link className="thumbnail" to={`/products/${product.id}`} >
+                <Product
+                  image={ image }
+                  name={ product.name }
+                  description={ product.description }
+                  price={ product.price }
+                />
+              </Link>
+            </div>
+        ))}
       </div>
     );
 }
