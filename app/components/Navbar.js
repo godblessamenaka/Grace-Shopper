@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router';
 
 export default class Navbar extends Component {
 constructor(){
@@ -9,7 +8,13 @@ constructor(){
 
 onClick(event){
   event.preventDefault()
-  if (event.target.value) this.props.fetchCategory(event.target.value)
+  if (event.target.value){
+    this.props.fetchCategory(event.target.value)
+  }
+  else {
+    //if All button is hit, set selectedCategory back to empty object
+    this.props.getCategory({});
+  }
 }
 
   render () {

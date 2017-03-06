@@ -8,11 +8,13 @@ function MultipleProducts (props){
   }
   else {
     for (var i = 0; i < props.products.length; i++){
-     products = props.products[i].categories.forEach((category) => {
+      props.products[i].categories.forEach((category) => {
         if (category.id === props.selectedCategory.id) products.push(props.products[i]);
       })
     }
   }
+
+  console.log(products);
 
     return (
       <div>
