@@ -31,7 +31,7 @@ onClick(id){
   render () {
     const categories = this.props.categories;
     return (
-      <nav className ="navbar navbar-default">
+      <nav className ="">
         <Toolbar style={{height: '75px'}}>
           <ToolbarGroup style={listStyle}>
             <div className ="container-fluid" >
