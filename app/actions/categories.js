@@ -4,6 +4,7 @@ export const GET_CATEGORIES = 'GET_CATEGORIES';
 export const GET_CATEGORY = 'GET_CATEGORY';
 export const CREATE_CATEGORY = 'CREATE_CATEGORY';
 export const DELETE_CATEGORY = 'DELETE_CATEGORY';
+export const DESELECT_CATEGORY = 'DESELECT_CATEGORY';
 
 export const getCategories = (categories) => ({ type: GET_CATEGORIES, receivedCategories: categories});
 export const getCategory = (category) => ({ type: GET_CATEGORY, receivedCategory: category});
@@ -25,3 +26,13 @@ export const fetchCategories = () => {
         });
     };
 };
+
+export const fetchCategory = (catId) => {
+    return (dispatch) => {
+        axios.get(`/api/categories/${catId}`)
+        .then(res => dispatch(getCategory(res.data)))
+        .catch(function (err) {
+            console.error(err);
+        });
+    }
+}

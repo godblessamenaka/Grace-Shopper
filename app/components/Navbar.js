@@ -1,19 +1,31 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router';
 
 export default class Navbar extends Component {
+constructor(){
+  super()
+  this.onClick = this.onClick.bind(this);
+}
+
+onClick(event){
+  event.preventDefault()
+  if (event.target.value){
+    this.props.fetchCategory(event.target.value)
+  }
+  else {
+    //if All button is hit, set selectedCategory back to empty object
+    this.props.getCategory({});
+  }
+}
+
   render () {
-    console.log(this.props)
     const categories = this.props.categories;
     return (
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
-              <ul className="nav navbar-nav">
-                <li><Link to='/products'>All</Link></li>
+                <button onClick={this.onClick}>All</button>
               {categories && categories.map((category) => {
-                return <li key={category.id}><Link to="#">{category.name}</Link></li>
+                return <button key={category.id} value={category.id} onClick={this.onClick}>{category.name}</button>
               })}
-              </ul>
             </div>
         </nav>
     )

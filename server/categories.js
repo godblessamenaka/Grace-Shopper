@@ -8,6 +8,11 @@ module.exports = require('express').Router()
     .then(categories => res.json(categories))
     .catch(next))
 
+.get('/:catId', (req,res,next) =>
+    Category.findById(req.params.catId)
+    .then(category => res.json(category))
+    .catch(next))
+
 .post('/', (req, res, next) =>
     Category.create(req.body)
     .then(newCat => res.json(newCat))
