@@ -12,20 +12,23 @@ let test = {
   reviews: [{rating: 5}, {rating: 1}]
 }
 
-export default function SingleProductsPage () {
-  const product = test.product//props.product;
-  const reviews = test.reviews//props.reviews;
+export default function SingleProductsPage (props) {
+
+  const product = props.product;
+  const reviews = props.reviews;
   const total = reviews.reduce((sum, review) => sum + review.rating, 0);
   const average = Math.round(total / reviews.length);
   const starsArr = [];
   const quantityMenu = [];
 
+if (product && product.id){
   for (let i = 1; i <= 5; i++){
     if (i <= average) starsArr.push(<span key = {i} className="glyphicon glyphicon-star" />)
     else starsArr.push(<span  key = {i} className="glyphicon glyphicon-star-empty" />)
   }
   for (let i = 0; i < product.inventory; i++ ) {
   quantityMenu.push(<MenuItem value={i} key={i} primaryText={`${i}`} />);
+}
 }
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    product: state.products.allProducts.find(product => product.id === +ownProps.params.id),
+    product: state.products.allProducts.find(product => product.id === +ownProps.params.productId),
     reviews: state.reviews
   }
 }
