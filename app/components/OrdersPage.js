@@ -3,19 +3,23 @@ import Promise from 'bluebird';
 import axios from 'axios';
 
 export default class OrdersPage extends Component {
-constructor(){
-  super()
+constructor(props){
+  super(props)
+  this.orderLines = [];
+}
+
+componentDidUpdate(){
+
+    Promise.map(this.props.currentUsersOrders, (order) => {
+        axios.get(`/api/orderlines/${order.id}`)
+        .then((lines) => {this.orderLines.push(lines.data)})
+    })
+
 }
 
 render(){
-    var orderLines = [];
-    Promise.map(this.props.currentUsersOrders, (order) => {
-        axios.get(`/api/orderlines/${order.id}`)
-        .then((line) => orderLines.push(line.data))
-    })
-    console.log(orderLines)
 
-
+    console.log('ol:', this.orderLines)
     return <div><p>Hi</p></div>
     }
 }

@@ -78,7 +78,7 @@ const seedReviews = () => db.Promise.map([
 ], review => db.model('reviews').create(review));
 
 db.didSync
-  .then(() => db.sync({force: false}))
+  .then(() => db.sync({force: true}))
   .then(seedUsers)
   .then(users => console.log(`Seeded ${users.length} users OK`))
   .then(seedCategories)
