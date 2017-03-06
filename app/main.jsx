@@ -39,7 +39,6 @@ const onAppEnter = function(){
 };
 
 const onUserAccountEnter = function(nextRouterState){
-    console.log(nextRouterState.params.userId)
     fetchOrdersByUser(nextRouterState.params.userId)(store.dispatch)
 }
 
