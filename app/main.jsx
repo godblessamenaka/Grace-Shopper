@@ -16,6 +16,7 @@ import WhoAmI from './components/WhoAmI'
 import Header from './components/Header'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
+import CartPage from './components/CartPage'
 import SingleProductsPage from './components/SingleProductsPage'
 
 const ExampleApp = connect(
@@ -42,13 +43,14 @@ render(
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={MultipleProductsContainer} />
+        <Route path="/products/:productId" component={SingleProductsPage} />
         <Route path="/cart" component={Header} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
         <Route path="/user/:userId" component={Header} />
         <Route path="/adminpanel" component={Header} />
         <Route path="/reviews" component={ReviewsContainer} />
+        <Route path="/cart" component={CartPage} />
         <IndexRedirect to="/home" />
       </Route>
     </Router>
