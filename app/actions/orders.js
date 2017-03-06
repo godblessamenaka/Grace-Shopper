@@ -6,6 +6,7 @@ export const GET_ORDER = 'GET_ORDER';
 export const CREATE_ORDER = 'CREATE_ORDER';
 export const DELETE_ORDER = 'DELETE_ORDER';
 export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const GET_ORDERS_BY_USER = 'GET_ORDERS_BY_USER';
 
 /* ------------   ACTION CREATORS     ------------------ */
 const getOrders = (orders) => ({ type: GET_ORDERS, receivedOrders: orders });
@@ -13,6 +14,7 @@ const getOrder = (order) => ({ type: GET_ORDER, receivedOrder: order });
 const createOrder = (order) => ({ type: CREATE_ORDER, orderToCreate: order });
 const deleteOrder = (order) => ({ type: DELETE_ORDER, orderToDelete: order });
 const updateOrder = (order) => ({ type: UPDATE_ORDER, orderToUpdate: order });
+const getOrdersByUser = (orders) => ({type: GET_ORDERS_BY_USER, currentUsersOrders: orders})
 
 /* ------------       DISPATCHERS     ------------------ */
 export const fetchOrders = () => dispatch => {
@@ -22,7 +24,7 @@ export const fetchOrders = () => dispatch => {
 }
 
 export const fetchOrder = (id) => dispatch => {
-  axios.get(`/api/order/${id}`)
+  axios.get(`/api/orders/${id}`)
     .then(res => dispatch(getOrder(res.data)))
     .catch(err => console.error('Fetching order unsuccessful', err))
 }
@@ -40,7 +42,13 @@ export const changeOrder = (id, order) => dispatch => {
 }
 
 export const removeOrder = id => dispatch => {
-  axios.delete(`/api/stories/${id}`)
+  axios.delete(`/api/orders/${id}`)
     .then(res => dispatch(deleteOrder(res.data)))
     .catch(err => console.error(`Removing order: ${id} unsuccessful`, err));
+}
+
+export const fetchOrdersByUser = id => dispatch => {
+  axios.get(`/api/orders/users/${id}`)
+  .then(res => dispatch(getOrdersByUser(res.data)))
+  .catch(err => console.error(`Getting user ${id} orders unsuccessful`, err));
 }
