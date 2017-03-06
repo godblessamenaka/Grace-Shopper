@@ -44,13 +44,13 @@ render(
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={SingleProductsPage} />
-        <Route path="/cart" component={Header} />
+        <Route path="/cart" component={CartPage} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
         <Route path="/user/:userId" component={Header} />
         <Route path="/adminpanel" component={Header} />
         <Route path="/reviews" component={ReviewsContainer} />
-        <Route path="/cart" component={CartPage} />
+
         <IndexRedirect to="/home" />
       </Route>
     </Router>

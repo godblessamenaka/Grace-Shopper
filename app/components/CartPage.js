@@ -37,9 +37,8 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 //   }
 // ];
 
-export default class CartPage extends Component {
-  render(){
-    return(
+const CartPage = () => {
+    return (
       <Table>
         <TableHeader>
           <TableRow>
@@ -82,7 +81,6 @@ export default class CartPage extends Component {
         </TableBody>
       </Table>
     )
-  }
 }
 
-//export default CartPage;
+export default CartPage;
