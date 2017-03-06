@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import MultipleProductsContainer from '../containers/MultipleProductsContainer';
-//import ReviewsContainer from '../containers/ReviewsContainer';
+import Reviews from '../components/Reviews';
 
 
 let test = {
@@ -12,9 +12,10 @@ let test = {
   reviews: [{rating: 5}, {rating: 1}]
 }
 
-export default function SingleProductsPage () {
-  const product = test.product//props.product;
-  const reviews = test.reviews//props.reviews;
+export default function SingleProductsPage (props) {
+
+  const product = props.product;
+  const reviews = props.reviews;
   const total = reviews.reduce((sum, review) => sum + review.rating, 0);
   const average = Math.round(total / reviews.length);
   const starsArr = [];
@@ -55,9 +56,9 @@ export default function SingleProductsPage () {
               {product.description}
               </div>
             </Tab>
-            <Tab label="Reviews" >
+            <Tab label="Reviews">
               <div>
-              <h1> REVIEWS COMPONENT HERE </h1>
+              <Reviews reviews ={reviews} />
               </div>
             </Tab>
           </Tabs>

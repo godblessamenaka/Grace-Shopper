@@ -4,7 +4,7 @@ import Product from '../components/Product'
 
 function MultipleProducts (props){
   let products = [];
-  if (!props.selectedCategory.id){
+  if (props.selectedCategory && !props.selectedCategory.id){
     products = props.products;
   }
   else {

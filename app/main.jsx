@@ -18,6 +18,9 @@ import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
 import CartPage from './components/CartPage'
 import SingleProductsPage from './components/SingleProductsPage'
+import SingleProductsPageContainer from './containers/SingleProductsPageContainer'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -37,20 +40,21 @@ const onAppEnter = function(){
     fetchReviews()(store.dispatch)
 };
 
+injectTapEventPlugin();
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={SingleProductsPage} />
         <Route path="/cart" component={CartPage} />
+        <Route path="/products/:productId" component={SingleProductsPageContainer} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
         <Route path="/user/:userId" component={Header} />
         <Route path="/adminpanel" component={Header} />
         <Route path="/reviews" component={ReviewsContainer} />
-
         <IndexRedirect to="/home" />
       </Route>
     </Router>
