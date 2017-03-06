@@ -19,7 +19,7 @@ export default class Navbar extends Component {
     const categories = this.props.categories;
     return (
       <nav className ="">
-        <Toolbar>
+        <Toolbar style={{height: '75px'}}>
           <ToolbarGroup style={listStyle}>
             <div className ="container-fluid" >
               <ul className="nav navbar-nav">
@@ -35,7 +35,7 @@ export default class Navbar extends Component {
                     style={buttonStyle}
                     key={category.id}
                     secondary={true}
-                    labelColor="black"
+                    labelColor="white"
                   >
                     <Link to="#">
                       {category.name}
