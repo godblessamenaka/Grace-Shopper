@@ -3,7 +3,19 @@ import {Link} from 'react-router';
 import Product from '../components/Product'
 
 function MultipleProducts (props){
-  const products = props.products;
+  let products = [];
+  if (!props.selectedCategory.id){
+    products = props.products;
+  }
+  else {
+    for (var i = 0; i < props.products.length; i++){
+      props.products[i].categories.forEach((category) => {
+        if (category.id === props.selectedCategory.id) products.push(props.products[i]);
+      })
+    }
+  }
+
+  console.log(products);
 
   const image = 'http://placehold.it/350x250'
 
