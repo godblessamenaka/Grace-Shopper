@@ -16,7 +16,9 @@ import WhoAmI from './components/WhoAmI'
 import Header from './components/Header'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
-import SingleProductsPage from './components/SingleProductsPage'
+import SingleProductsPageContainer from './containers/SingleProductsPageContainer'
+
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -36,13 +38,15 @@ const onAppEnter = function(){
     fetchReviews()(store.dispatch)
 };
 
+injectTapEventPlugin();
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={MultipleProductsContainer} />
+        <Route path="/products/:productId" component={SingleProductsPageContainer} />
         <Route path="/cart" component={Header} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
