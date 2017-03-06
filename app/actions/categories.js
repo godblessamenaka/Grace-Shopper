@@ -25,3 +25,13 @@ export const fetchCategories = () => {
         });
     };
 };
+
+export const fetchCategory = (catId) => {
+    return (dispatch) => {
+        axios.get(`/api/categories/${catId}`)
+        .then(res => dispatch(getCategory(res.data)))
+        .catch(function (err) {
+            console.error(err);
+        });
+    }
+}

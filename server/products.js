@@ -6,7 +6,7 @@ module.exports = require('express').Router()
 
 // get all products
 .get('/', (req, res, next) =>
-    Product.findAll()
+    Product.findAll({include: [{model: Category}]})
     .then(products => res.json(products))
     .catch(next))
 

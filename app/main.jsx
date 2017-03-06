@@ -9,12 +9,14 @@ import {fetchCategories} from './actions/categories'
 import {fetchProducts} from './actions/products'
 import {fetchReviews} from './actions/reviews'
 
-import Jokes from './components/Jokes'
-import Header from './components/Header'
+import App from './components/App'
 import Login from './components/Login'
 import ReviewsContainer from './containers/ReviewsContainer'
 import WhoAmI from './components/WhoAmI'
+import Header from './components/Header'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
+import LandingPageContainer from './containers/LandingPageContainer'
+import SingleProductsPage from './components/SingleProductsPage'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -37,7 +39,8 @@ const onAppEnter = function(){
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Header} onEnter={onAppEnter} >
+      <Route path="/" component={App} onEnter={onAppEnter} >
+        <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
         <Route path="/products/:productId" component={MultipleProductsContainer} />
         <Route path="/cart" component={Header} />
@@ -46,6 +49,7 @@ render(
         <Route path="/user/:userId" component={Header} />
         <Route path="/adminpanel" component={Header} />
         <Route path="/reviews" component={ReviewsContainer} />
+        <IndexRedirect to="/home" />
       </Route>
     </Router>
   </Provider>,
