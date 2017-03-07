@@ -16,12 +16,12 @@ export default function SingleProductsPage (props) {
   const quantityMenu = [];
 
   for (let i = 1; i <= 5; i++){
-    if (i <= average) starsArr.push(<span key = {i} className="glyphicon glyphicon-star" />);
-    else starsArr.push(<span  key = {i} className="glyphicon glyphicon-star-empty" />);
+    if (i <= average) starsArr.push(<i key = {i} className="fa fa-star" aria-hidden="true" />);
+    else starsArr.push(<i key = {i} className="fa fa-star-o" aria-hidden="true" />);
   }
   for (let i = 0; i <= product.inventory; i++ ) {
-  quantityMenu.push(<MenuItem value={i} key={i} primaryText={`${i}`} />);
-}
+    quantityMenu.push(<MenuItem value={i} key={i} primaryText={`${i}`} />);
+  }
 
 
   return (
@@ -34,7 +34,10 @@ export default function SingleProductsPage (props) {
           <h2>{product.name}</h2>
           <h3>$ {product.price}</h3>
           <h3>{starsArr}</h3>
-          <SelectField floatingLabelText="Quantity" value={props.quantity} onChange={props.handleQuantityChange}>
+          <SelectField
+          floatingLabelText="Quantity"
+          value={props.quantity}
+          onChange={props.handleQuantityChange}>
           {quantityMenu}
           </SelectField>
           <div>
