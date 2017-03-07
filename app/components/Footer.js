@@ -22,15 +22,15 @@ export default function Footer () {
 
       <div className="footer-center">
         <div>
-          <i className="fa fa-map-marker"></i>
+          <i className="fa fa-map-marker" />
           <p><span>21 Revolution Street</span> New York, New York</p>
         </div>
         <div>
-          <i className="fa fa-phone"></i>
+          <i className="fa fa-phone" />
           <p>+1 555 123456</p>
         </div>
         <div>
-          <i className="fa fa-envelope"></i>
+          <i className="fa fa-envelope" />
           <p><a href="mailto:support@alchemetsy.com">support@alchemetsy.com</a></p>
         </div>
       </div>
@@ -41,10 +41,10 @@ export default function Footer () {
           Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
         </p>
         <div className="footer-icons">
-          <a href="#"><i className="fa fa-facebook"></i></a>
-          <a href="#"><i className="fa fa-twitter"></i></a>
-          <a href="#"><i className="fa fa-linkedin"></i></a>
-          <a href="#"><i className="fa fa-github"></i></a>
+          <a href="#"><i className="fa fa-facebook" /></a>
+          <a href="#"><i className="fa fa-twitter" /></a>
+          <a href="#"><i className="fa fa-linkedin" /></a>
+          <a href="#"><i className="fa fa-github" /></a>
         </div>
       </div>
     </footer>
