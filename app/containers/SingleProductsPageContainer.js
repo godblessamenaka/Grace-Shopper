@@ -1,3 +1,4 @@
+import React from 'react'
 import SingleProductsPage from '../components/SingleProductsPage'
 import { connect } from 'react-redux';
 
@@ -8,12 +9,34 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {  }
+const mapDispatchToProps = () => {
+  return {
+  }
 }
 
-const SingleProductsPageContainer = connect(
-  mapStateToProps, mapDispatchToProps
-)(SingleProductsPage)
+class SingleProductsPageContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quantity: 0
+    }
+    this.handleQuantityChange = this.handleQuantityChange.bind(this)
+  }
 
-export default SingleProductsPageContainer
+  handleQuantityChange(event, index, value) {
+    this.setState({quantity: value})
+  }
+  render(){
+    return (
+      <SingleProductsPage
+      {...this.state}
+      {...this.props}
+      handleQuantityChange={this.handleQuantityChange} />
+    );
+  }
+
+}
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(SingleProductsPageContainer)

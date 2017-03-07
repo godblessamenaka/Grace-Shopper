@@ -6,12 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import MultipleProductsContainer from '../containers/MultipleProductsContainer';
 import Reviews from '../components/Reviews';
 
-
-let test = {
-  product: {name: 'Test Name', inventory: 31, price: 150.99, description: 'test description Wooooooooooojsdjosdifjsdkjfoefjkzdfi wejnoi sjdfjsfouh sdjknoienfskdjfho iwjejsd hweorijsjnfo. Howejn oejnosnthoijdf.'},
-  reviews: [{rating: 5}, {rating: 1}]
-}
-
 export default function SingleProductsPage (props) {
 
   const product = props.product;
@@ -22,10 +16,10 @@ export default function SingleProductsPage (props) {
   const quantityMenu = [];
 
   for (let i = 1; i <= 5; i++){
-    if (i <= average) starsArr.push(<span key = {i} className="glyphicon glyphicon-star" />)
-    else starsArr.push(<span  key = {i} className="glyphicon glyphicon-star-empty" />)
+    if (i <= average) starsArr.push(<span key = {i} className="glyphicon glyphicon-star" />);
+    else starsArr.push(<span  key = {i} className="glyphicon glyphicon-star-empty" />);
   }
-  for (let i = 0; i < product.inventory; i++ ) {
+  for (let i = 0; i <= product.inventory; i++ ) {
   quantityMenu.push(<MenuItem value={i} key={i} primaryText={`${i}`} />);
 }
 
@@ -40,7 +34,7 @@ export default function SingleProductsPage (props) {
           <h2>{product.name}</h2>
           <h3>$ {product.price}</h3>
           <h3>{starsArr}</h3>
-          <SelectField floatingLabelText="Quantity" value={1} disabled={true}>
+          <SelectField floatingLabelText="Quantity" value={props.quantity} onChange={props.handleQuantityChange}>
           {quantityMenu}
           </SelectField>
           <div>
