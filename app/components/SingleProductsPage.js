@@ -37,7 +37,10 @@ export default function SingleProductsPage (props) {
           <SelectField
           floatingLabelText="Quantity"
           value={props.quantity}
-          onChange={props.handleQuantityChange}>
+          onChange={props.handleQuantityChange}
+          disabled = {!product.inventory}
+          errorText={!product.inventory && 'Out of Stock'}
+          >
           {quantityMenu}
           </SelectField>
           <div>

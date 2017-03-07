@@ -18,7 +18,7 @@ class SingleProductsPageContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      quantity: 0
+      quantity: null
     }
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
   }
