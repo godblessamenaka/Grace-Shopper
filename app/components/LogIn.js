@@ -49,10 +49,15 @@ export default class Login extends React.Component {
 
   state = {
     open: false,
+    value: 'signIn'
   };
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({open: true, value: 'signIn'});
+  };
+
+    handleOpenRegister = () => {
+    this.setState({open: true, value: 'register'});
   };
 
   handleClose = () => {
@@ -98,15 +103,21 @@ export default class Login extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="Sign In/ Register" onTouchTap={this.handleOpen} />
+        <RaisedButton
+          label="Sign In"
+          onTouchTap={this.handleOpen}
+          style={styles.oAuth}
+          value="signIn"
+        />
+        <RaisedButton label="Register" onTouchTap={this.handleOpenRegister} style={styles.oAuth} />
         <Dialog
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <Tabs>
-            <Tab label="Sign In">
+          <Tabs value={this.state.value}>
+            <Tab label="Sign In" value="signIn">
               <div style={styles.form}>
                 <h2 style={styles.headline}>Already Have An Account?</h2>
                 <form action="">
@@ -116,7 +127,7 @@ export default class Login extends React.Component {
                 </form>
               </div>
             </Tab>
-            <Tab label = "Register">
+            <Tab label = "Register" value="register">
               <div style={styles.form}>
                 <h2 style={styles.headline}>New to AlchemEtsy?</h2>
                 <form action="">
