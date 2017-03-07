@@ -1,8 +1,9 @@
-import { GET_ORDERS, GET_ORDER, CREATE_ORDER, DELETE_ORDER, UPDATE_ORDER} from '../actions/orders'
+import { GET_ORDERS, GET_ORDER, CREATE_ORDER, DELETE_ORDER, UPDATE_ORDER, GET_ORDERS_BY_USER} from '../actions/orders'
 
 const initialState = {
   allOrders: [],
-  selectedOrder: {}
+  selectedOrder: {},
+  currentUsersOrders: []
 }
 
 const orderReducer = (state = initialState, action) => {
@@ -30,7 +31,11 @@ const orderReducer = (state = initialState, action) => {
         action.order.id === order.id ? action.orderToUpdate : order
       ))
       break
-      
+
+    case GET_ORDERS_BY_USER:
+      newState.currentUsersOrders = action.currentUsersOrders
+      break;
+
     default:
       return state
   }

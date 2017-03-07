@@ -1,6 +1,7 @@
 const db = require('APP/db')
 const Order = db.model('orders')
-
+const OrderLines = db.model('orderLines')
+const Product = db.model('products')
 const {forbidden} = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -28,3 +29,16 @@ module.exports = require('express').Router()
     Order.findById(req.params.id)
     .then(order => order.update(req.body))
     .catch(next))
+
+//get all orders for a user
+  .get('/users/:userId', (req,res,next) => {
+  return Order.findAll({
+    where: {
+      user_id: req.params.userId
+    },
+    include: [{model: OrderLines, include: [{all: true}]}]
+  })
+  .then(orders => {
+    res.json(orders);
+  })
+  .catch(next)})

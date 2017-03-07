@@ -22,6 +22,7 @@ Order.belongsTo(User)
 Review.belongsTo(User, {as: 'user'})
 Review.belongsTo(Product, {as: 'product'})
 OrderLine.belongsTo(Order, {as: 'order'})
+Order.hasMany(OrderLine)
 OrderLine.belongsTo(Product, {as: 'product'})
 
 //many to many
