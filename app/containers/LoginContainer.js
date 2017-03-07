@@ -1,5 +1,6 @@
 import Login from '../components/Login';
 import { connect } from 'react-redux';
+import { addUser } from '../actions/users'
 
 const mapStateToProps = (state) => {
   return {
@@ -7,8 +8,17 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: function (credentials) {
+      dispatch(addUser(credentials));
+    }
+  };
+};
+
+
 const LoginContainer = connect(
-  mapStateToProps
+  mapStateToProps, mapDispatchToProps
 )(Login);
 
 export default LoginContainer;
