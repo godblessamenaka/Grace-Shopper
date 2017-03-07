@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import {fullWhite} from 'material-ui/styles/colors';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 const buttonStyle = {
   marginRight: '10px',
