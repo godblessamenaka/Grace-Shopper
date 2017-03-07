@@ -3,7 +3,6 @@ import Dialog from 'material-ui/Dialog';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import { addUser } from '../actions/users'
 import {login} from '../reducers/auth'
 
 /**
@@ -100,7 +99,7 @@ export default class Login extends React.Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.onLoginSubmit}
+        // onTouchTap={this.onLoginSubmit}
         type="submit"
       />
     ];
@@ -115,7 +114,6 @@ export default class Login extends React.Component {
         />
         <RaisedButton label="Register" onTouchTap={this.handleOpenRegister} style={styles.oAuth} />
         <Dialog
-          actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
@@ -126,8 +124,10 @@ export default class Login extends React.Component {
                 <h2 style={styles.headline}>Already Have An Account?</h2>
                 <form onSubmit={this.onLoginSubmit}>
                   <input style={styles.input} name="email" type="email" placeholder="Email" />
-                  <input style={styles.input} type="password" placeholder="Password" />
-                  <input type="submit" />
+                  <input style={styles.input} name="password" type="password" placeholder="Password" />
+                  <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                    {actions}
+                  </div>
                 </form>
               </div>
             </Tab>
@@ -140,6 +140,9 @@ export default class Login extends React.Component {
                   <input style={styles.input} type="email" name="field2" placeholder="Email" />
                   <input style={styles.input} type="password" name="psw" placeholder="Password" />
                   <input style={styles.input} type="re-password" name="psw" placeholder="Re-enter Password" />
+                  <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                    {actions}
+                  </div>
                 </form>
               </div>
             </Tab>
@@ -150,12 +153,12 @@ export default class Login extends React.Component {
   }
 
   onLoginSubmit(event) {
-    console.log(event.target.value)
     event.preventDefault();
     const credentials = {
       email: event.target.email.value,
       password: event.target.password.value
     };
-    this.props.login(credentials);
+    console.log(credentials)
+    this.props.login(credentials)
   }
 }
