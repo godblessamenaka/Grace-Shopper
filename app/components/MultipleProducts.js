@@ -17,7 +17,7 @@ function MultipleProducts (props){
 
   console.log(products);
 
-  const image = 'http://placehold.it/350x250'
+  const image = '/images/smoky_bottle.jpg'
 
   const style = {
     position: 'realative',

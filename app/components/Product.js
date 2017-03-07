@@ -3,7 +3,7 @@ import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 
-const CardExampleWithAvatar = (props) => (
+const Product = (props) => (
   <Card>
     <CardMedia>
       <img src={props.image} />
@@ -16,4 +16,4 @@ const CardExampleWithAvatar = (props) => (
   </Card>
 );
 
-export default CardExampleWithAvatar;
+export default Product;
