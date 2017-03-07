@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import {fullWhite} from 'material-ui/styles/colors';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 
 const buttonStyle = {
   marginRight: '10px',
@@ -31,7 +30,7 @@ onClick(id){
   render () {
     const categories = this.props.categories;
     return (
-      <nav className ="navbar navbar-default">
+      <nav className ="">
         <Toolbar style={{height: '75px'}}>
           <ToolbarGroup style={listStyle}>
             <div className ="container-fluid" >

@@ -17,10 +17,16 @@ import WhoAmI from './components/WhoAmI'
 import Header from './components/Header'
 import MultipleProductsContainer from './containers/MultipleProductsContainer'
 import LandingPageContainer from './containers/LandingPageContainer'
-import SingleProductsPage from './components/SingleProductsPage'
 import OrdersPageContainer from './containers/OrdersPageContainer'
+import CartPageContainer from './containers/CartPageContainer'
+import SingleProductsPageContainer from './containers/SingleProductsPageContainer'
 
-const ExampleApp = connect(
+
+//material ui fix for tap events
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
+
+/*const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
 )(
   ({ user, children }) =>
@@ -30,7 +36,7 @@ const ExampleApp = connect(
       </nav>
       {children}
     </div>
-)
+)*/
 
 const onAppEnter = function(){
     fetchCategories()(store.dispatch)
@@ -38,9 +44,13 @@ const onAppEnter = function(){
     fetchReviews()(store.dispatch)
 };
 
+
 const onUserAccountEnter = function(nextRouterState){
     fetchOrdersByUser(nextRouterState.params.userId)(store.dispatch)
 }
+
+injectTapEventPlugin();
+
 
 render(
   <Provider store={store}>
@@ -48,8 +58,8 @@ render(
       <Route path="/" component={App} onEnter={onAppEnter} >
         <Route path="/home" component={LandingPageContainer} />
         <Route path="/products" component={MultipleProductsContainer} />
-        <Route path="/products/:productId" component={MultipleProductsContainer} />
-        <Route path="/cart" component={Header} />
+        <Route path="/cart" component={CartPageContainer} />
+        <Route path="/products/:productId" component={SingleProductsPageContainer} />
         <Route path="/register" component={Header} />
         <Route path="/signup" component={Header} />
         <Route path="/user/:userId" component={Header} />

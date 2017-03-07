@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 
@@ -9,7 +9,6 @@ const CardExampleWithAvatar = (props) => (
       <img src={props.image} />
     </CardMedia>
     <CardTitle title={props.name} subtitle="Card subtitle" />
-    <CardText>{ props.description }</CardText>
     <CardActions>
       <span style={{margin: 10}}>$ {props.price}</span>
       <FlatButton label="Buy" />
