@@ -7,10 +7,10 @@ const buttonStyle = {
   margin: 12,
 };
 
-export default class Header extends Component {
-  render () {
-    return (
-      <div>
+
+const Header = () => {
+  return (
+    <div>
         <nav className ="navbar navbar-default">
           <div className ="container-fluid">
             <div className="navbar-header">
@@ -28,6 +28,7 @@ export default class Header extends Component {
         <NavbarContainer />
 		  </nav>
     </div>
-    )
-  }
+  )
 }
+
+export default Header

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, TableFooter} from 'material-ui/Table';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // const styles = {
 //   propContainer: {
@@ -37,8 +38,22 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 //   }
 // ];
 
-const CartPage = () => {
+const CartPage = (props) => {
+   const productsInCart = props.productsInCart;
+   console.log('here are the contents of your cart: ', productsInCart)
+   const RowsFromProducts = productsInCart.map(function(product){
     return (
+      <TableRow key>
+            <TableRowColumn>{product.image}</TableRowColumn>
+            <TableRowColumn>{product.name}</TableRowColumn>
+            <TableRowColumn>{product.price}</TableRowColumn>
+            <TableRowColumn>{product.qty}</TableRowColumn>
+            <TableRowColumn>{ (product.qty) * (product.price) }</TableRowColumn>
+      </TableRow>
+  );
+});
+    return (
+      <div>
       <Table>
         <TableHeader>
           <TableRow>
@@ -46,40 +61,16 @@ const CartPage = () => {
             <TableHeaderColumn>Name</TableHeaderColumn>
             <TableHeaderColumn>Price</TableHeaderColumn>
             <TableHeaderColumn>Qty</TableHeaderColumn>
-            <TableHeaderColumn>Total Item Price</TableHeaderColumn>
+            <TableHeaderColumn>Total</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableRowColumn>image</TableRowColumn>
-            <TableRowColumn>Potion</TableRowColumn>
-            <TableRowColumn>200</TableRowColumn>
-            <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>400</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>image2</TableRowColumn>
-            <TableRowColumn>Potion2</TableRowColumn>
-            <TableRowColumn>300</TableRowColumn>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>300</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>image3</TableRowColumn>
-            <TableRowColumn>Potion3</TableRowColumn>
-            <TableRowColumn>200</TableRowColumn>
-            <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>600</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>image4</TableRowColumn>
-            <TableRowColumn>Steve Brown</TableRowColumn>
-            <TableRowColumn>350</TableRowColumn>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>350</TableRowColumn>
-          </TableRow>
+        {RowsFromProducts}
         </TableBody>
       </Table>
+      {productsInCart.length===0 ? <RaisedButton label="Keep Shopping" fullWidth={true} /> : <RaisedButton label="Checkout" fullWidth={true} />} 
+      </div>
+
     )
 }
 
