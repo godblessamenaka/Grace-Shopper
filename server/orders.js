@@ -31,7 +31,6 @@ module.exports = require('express').Router()
 
 //get all orders for a user
   .get('/users/:userId', (req,res,next) => {
-  console.log('before findAll');
   return Order.findAll({
     where: {
       user_id: req.params.userId
@@ -39,7 +38,6 @@ module.exports = require('express').Router()
     include: [{all: true}]
   })
   .then(orders => {
-    console.log(orders)
     res.json(orders);
   })
   .catch(next)})
