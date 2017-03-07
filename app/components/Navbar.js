@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import {Link} from 'react-router';
 
 const buttonStyle = {
   marginRight: '10px',
@@ -14,10 +15,10 @@ const listStyle = {
 export default class Navbar extends Component {
 constructor(){
   super()
-  this.onClick = this.onClick.bind(this);
+  this.onCategoryClick = this.onCategoryClick.bind(this);
 }
 
-onClick(id){
+onCategoryClick(id){
   if (id){
     this.props.fetchCategory(id)
   }
@@ -35,19 +36,20 @@ onClick(id){
           <ToolbarGroup style={listStyle}>
             <div className ="container-fluid" >
               <ul className="nav navbar-nav">
+              <Link to={'/products'}>
                 <RaisedButton
-                  onClick={() => {this.onClick()}}
+                  onClick={() => {this.onCategoryClick()}}
                   style={buttonStyle}
                   primary={true}
                   labelColor="#a4c639">
                   All
-                </RaisedButton>
+                </RaisedButton></Link>
                 {categories && categories.map((category) => {
                   return (
                     <RaisedButton
                       key={category.id}
                       value={category.id}
-                      onClick={() => {this.onClick(category.id)}}
+                      onClick={() => {this.onCategoryClick(category.id)}}
                       style={buttonStyle}
                       secondary={true}
                       labelColor="white"
