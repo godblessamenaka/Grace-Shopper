@@ -100,7 +100,7 @@ export default class Login extends React.Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        // onTouchTap={this.onLoginSubmit}
+        onTouchTap={this.onLoginSubmit}
         type="submit"
       />
     ];
@@ -144,16 +144,13 @@ export default class Login extends React.Component {
               </div>
             </Tab>
           </Tabs>
-          <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
-            {actions}
-          </div>
         </Dialog>
       </div>
     );
   }
 
   onLoginSubmit(event) {
-    console.log(event.target)
+    console.log(event.target.value)
     event.preventDefault();
     const credentials = {
       email: event.target.email.value,
