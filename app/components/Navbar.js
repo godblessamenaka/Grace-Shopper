@@ -46,8 +46,8 @@ onCategoryClick(id){
                 </RaisedButton></Link>
                 {categories && categories.map((category) => {
                   return (
+                    <Link key={category.id} to={'/products'}>
                     <RaisedButton
-                      key={category.id}
                       value={category.id}
                       onClick={() => {this.onCategoryClick(category.id)}}
                       style={buttonStyle}
@@ -55,7 +55,7 @@ onCategoryClick(id){
                       labelColor="white"
                     >
                       {category.name}
-                    </RaisedButton>
+                    </RaisedButton></Link>
                   )
                 })}
               </ul>
