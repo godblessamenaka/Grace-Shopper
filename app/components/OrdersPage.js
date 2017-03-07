@@ -1,27 +1,7 @@
-// import React from 'react';
-
-
-// export default function OrdersPage(props) {
-
-//     const orders = props.currentUsersOrders
-//     return <div>
-//         {orders && orders.map((order) => {
-//             return (<div key={order.id}>
-//                 <p>{order.date}</p>
-//                 <p>{order.status}</p>
-//                 {order.orderLines && order.orderLines.map((orderLine) => {
-//                     return (<div key={orderLine.id}>
-//                         <p>{orderLine.price} X {orderLine.quantity} = {orderLine.totalPrice}</p>
-//                     </div>)
-//                 })}
-//             </div>)
-//         })}
-//     </div>
-// }
-
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
+import {Link} from 'react-router';
 
 export default class OrdersPage extends React.Component {
 
@@ -29,25 +9,11 @@ export default class OrdersPage extends React.Component {
     open: false,
   };
 
-  handleToggle = () => {
-    this.setState({
-      open: !this.state.open,
-    });
-  };
-
   handleNestedListToggle = (item) => {
     this.setState({
       open: item.state.open,
     });
   };
-
-  findProductById = (id) => {
-    this.props.allProducts.forEach((product) => {
-        if (product.id === id){
-            return product.name;
-        }
-    });
-  }
 
   render() {
     const orders = this.props.currentUsersOrders
@@ -64,11 +30,12 @@ export default class OrdersPage extends React.Component {
             initiallyOpen={false}
             primaryTogglesNestedList={true}
                 nestedItems={order.orderLines && order.orderLines.map((orderLine) => {
-                const product = this.findProductById(orderLine.id);
-                console.log(product)
                 return (<ListItem
-                  key={orderLine.id}
-                  primaryText='hi'
+                key={orderLine.id}
+                hoverColor="#891548"
+                  primaryText={orderLine.product.name}
+                  secondaryText={'Qty: ' + orderLine.quantity + ' Price: $' + orderLine.totalPrice}
+                  containerElement={<Link to={`/products/${orderLine.product_id}`} />}
                 />)
               })}
             />)})}

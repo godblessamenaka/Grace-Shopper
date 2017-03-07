@@ -1,6 +1,7 @@
 const db = require('APP/db')
 const Order = db.model('orders')
 const OrderLines = db.model('orderLines')
+const Product = db.model('products')
 const {forbidden} = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -35,7 +36,7 @@ module.exports = require('express').Router()
     where: {
       user_id: req.params.userId
     },
-    include: [{all: true}]
+    include: [{model: OrderLines, include: [{all: true}]}]
   })
   .then(orders => {
     res.json(orders);
