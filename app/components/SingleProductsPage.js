@@ -44,7 +44,11 @@ export default function SingleProductsPage (props) {
           {quantityMenu}
           </SelectField>
           <div>
-            <RaisedButton label="Add to Cart" />
+            <RaisedButton
+            label="Add to Cart"
+            disabled = {!product.inventory}
+            onTapTouch = {props.handleAddtoCart}
+            />
           </div>
         </div>
       </div>
