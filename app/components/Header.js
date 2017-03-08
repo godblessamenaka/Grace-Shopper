@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react'
 import LoginContainer from '../containers/LoginContainer'
 import NavbarContainer from '../containers/NavbarContainer'
 import {Link} from 'react-router';
