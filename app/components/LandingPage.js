@@ -22,9 +22,9 @@ class LandingPage extends Component {
 
     return (
       <div>
-        <Search handleChange={this.handleChange} inputValue={inputValue} />
         <img src="/images/potionbg.png" alt="" />
         <MultipleProductsContainer />
+        <Search handleChange={this.handleChange} inputValue={inputValue} />
       </div>
     )
   }
