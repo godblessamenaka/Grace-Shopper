@@ -20,16 +20,23 @@ export const addItemToCart = item => dispatch => {
   let workingCart =  user ? localStorage.getItem('cart' + user) : localStorage.getItem('cart0')
   workingCart = JSON.parse(workingCart)
 
-  //check if cart already has line for item
-  const oldIndex = workingCart.findIndex(item => item.id === newItem.id);
-
-  //add item to cart combine with old line
-  if (oldIndex !== -1){
-    newItem.quantity += workingCart[oldIndex].quantity
-    workingCart[oldIndex] = newItem
+  //if cart was empty
+  if (!workingCart){
+    workingCart = [];
+    workingCart.push(newItem);
   }
   else {
-    workingCart.push(newItem)
+    //check if cart already has line for item
+    const oldIndex = workingCart.findIndex(cartItem => cartItem.id === newItem.id);
+
+    //add item to cart combine with old line
+    if (oldIndex !== -1){
+      newItem.quantity += workingCart[oldIndex].quantity
+      workingCart[oldIndex] = newItem
+    }
+    else {
+      workingCart.push(newItem)
+    }
   }
 
   localStorage.setItem(user ? 'cart' + user : 'cart0', JSON.stringify(workingCart));

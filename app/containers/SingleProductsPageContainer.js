@@ -1,6 +1,8 @@
 import React from 'react'
 import SingleProductsPage from '../components/SingleProductsPage'
 import { connect } from 'react-redux';
+import {addItemToCart} from '../actions/cart'
+import {browserHistory} from 'react-router'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,8 +11,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
   return {
+    handleAddtoCart(item){
+      dispatch(addItemToCart(item))
+    }
   }
 }
 
@@ -21,17 +26,27 @@ class SingleProductsPageContainer extends React.Component {
       quantity: null
     }
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
+    this.handleAddtoCart = this.handleAddtoCart.bind(this)
   }
 
   handleQuantityChange(event, index, value) {
     this.setState({quantity: value})
   }
+
+  handleAddtoCart() {
+    const item = Object.assign({quantity: this.state.quantity}, this.props.product)
+    this.props.handleAddtoCart(item)
+    browserHistory.push('/cart')
+  }
+
   render(){
     return (
       <SingleProductsPage
       {...this.state}
       {...this.props}
-      handleQuantityChange={this.handleQuantityChange} />
+      handleQuantityChange={this.handleQuantityChange}
+      handleAddtoCart={this.handleAddtoCart}
+      />
     );
   }
 

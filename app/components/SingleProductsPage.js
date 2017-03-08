@@ -47,7 +47,7 @@ export default function SingleProductsPage (props) {
             <RaisedButton
             label="Add to Cart"
             disabled = {!product.inventory}
-            onTapTouch = {props.handleAddtoCart}
+            onClick = {props.handleAddtoCart}
             />
           </div>
         </div>
