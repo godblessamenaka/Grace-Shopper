@@ -4,6 +4,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {login} from '../reducers/auth'
+import {Link} from 'react-router';
 
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
@@ -38,8 +39,11 @@ const styles = {
   oAuth: {
     marginRight: 12
   }
-};
 
+};
+const buttonStyle = {
+  margin: 12,
+};
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -113,6 +117,7 @@ export default class Login extends React.Component {
           value="signIn"
         />
         <RaisedButton label="Register" onTouchTap={this.handleOpenRegister} style={styles.oAuth} />
+        <Link to={'/cart'}><RaisedButton label="Cart" style={buttonStyle} /></Link>
         <Dialog
           modal={false}
           open={this.state.open}
