@@ -42,7 +42,7 @@ const CartPage = (props) => {
         {RowsFromProducts}
         </TableBody>
       </Table>
-      {productsInCart.length === 0 ? <RaisedButton label="Keep Shopping" fullWidth={true} /> : <RaisedButton label="Checkout" fullWidth={true} secondary={true} />}
+      {productsInCart.length === 0 ? <RaisedButton label="Keep Shopping" fullWidth={true} /> : <RaisedButton label="Checkout" fullWidth={true} primary={true} />}
       </div>
 
     )
