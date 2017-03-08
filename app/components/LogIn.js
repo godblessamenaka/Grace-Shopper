@@ -113,11 +113,17 @@ export default class Login extends React.Component {
         <RaisedButton
           label="Sign In"
           onTouchTap={this.handleOpen}
+          primary={true}
           style={styles.oAuth}
           value="signIn"
         />
-        <RaisedButton label="Register" onTouchTap={this.handleOpenRegister} style={styles.oAuth} />
-        <Link to={'/cart'}><RaisedButton label="Cart" style={buttonStyle} /></Link>
+        <RaisedButton
+          label="Register"
+          onTouchTap={this.handleOpenRegister}
+          primary={true}
+          style={styles.oAuth}
+          />
+        <Link to={'/cart'}><RaisedButton label="Cart" style={buttonStyle} secondary={true} /></Link>
         <Dialog
           modal={false}
           open={this.state.open}

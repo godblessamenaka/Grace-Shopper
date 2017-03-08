@@ -25,7 +25,7 @@ export default function SingleProductsPage (props) {
 
 
   return (
-    <div>
+    <div style={{color: 'white'}}>
       <div className="row">
         <div className="col-xs-4 col-xs-offset-2">
           <img className="img-responsive" src={'/images/main bottles/' + product.image} />
@@ -48,6 +48,7 @@ export default function SingleProductsPage (props) {
             label="Add to Cart"
             disabled = {!product.inventory}
             onClick = {props.handleAddtoCart}
+            primary = {true}
             />
           </div>
         </div>

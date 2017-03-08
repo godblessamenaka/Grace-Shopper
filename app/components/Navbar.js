@@ -52,7 +52,7 @@ onCategoryClick(id){
                       onClick={() => {this.onCategoryClick(category.id)}}
                       style={buttonStyle}
                       secondary={true}
-                      labelColor="white"
+                      labelColor="a4c639"
                     >
                       {category.name}
                     </RaisedButton></Link>

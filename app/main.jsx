@@ -31,7 +31,7 @@ const muiTheme = getMuiTheme({palette: {
     primary2Color: '#5f1d3c',
     primary3Color: '#515062',
     accent1Color: '#891548',
-    accent2Color: '#88869c',
+    accent2Color: '#515062',
     accent3Color: '#515062',
     textColor: '#f5f5f5',
     alternateTextColor: '#f5f5f5',
