@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import { addUser } from '../actions/users'
+import {login} from '../reducers/auth'
 
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
@@ -48,10 +48,16 @@ export default class Login extends React.Component {
   }
 
   state = {
-    open: false,
+    open: false
   };
 
+
+
   handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleOpenRegister = () => {
     this.setState({open: true});
   };
 
@@ -66,6 +72,7 @@ export default class Login extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const actions = [
       <RaisedButton
         label="join with Google"
@@ -92,31 +99,39 @@ export default class Login extends React.Component {
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.loginSubmit}
+        // onTouchTap={this.onLoginSubmit}
+        type="submit"
       />
     ];
 
     return (
       <div>
-        <RaisedButton label="Sign In/ Register" onTouchTap={this.handleOpen} />
+        <RaisedButton
+          label="Sign In"
+          onTouchTap={this.handleOpen}
+          style={styles.oAuth}
+          value="signIn"
+        />
+        <RaisedButton label="Register" onTouchTap={this.handleOpenRegister} style={styles.oAuth} />
         <Dialog
-          actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <Tabs>
-            <Tab label="Sign In">
+          <Tabs value={this.state.value}>
+            <Tab label="Sign In" value="signIn">
               <div style={styles.form}>
                 <h2 style={styles.headline}>Already Have An Account?</h2>
-                <form action="">
-                  
-                  <input style={styles.input} type="text" placeholder="Email" />
-                  <input style={styles.input} type="text" placeholder="Password" />
+                <form onSubmit={this.onLoginSubmit}>
+                  <input style={styles.input} name="email" type="email" placeholder="Email" />
+                  <input style={styles.input} name="password" type="password" placeholder="Password" />
+                  <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                    {actions}
+                  </div>
                 </form>
               </div>
             </Tab>
-            <Tab label = "Register">
+            <Tab label = "Register" value="register">
               <div style={styles.form}>
                 <h2 style={styles.headline}>New to AlchemEtsy?</h2>
                 <form action="">
@@ -124,7 +139,10 @@ export default class Login extends React.Component {
                   <input style={styles.input} type="text" name="last" placeholder="Last Name" />
                   <input style={styles.input} type="email" name="field2" placeholder="Email" />
                   <input style={styles.input} type="password" name="psw" placeholder="Password" />
-                  <input style={styles.input} type="password" name="psw" placeholder="Re-enter Password" />
+                  <input style={styles.input} type="re-password" name="psw" placeholder="Re-enter Password" />
+                  <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                    {actions}
+                  </div>
                 </form>
               </div>
             </Tab>
@@ -140,6 +158,7 @@ export default class Login extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value
     };
-    this.props.login(credentials);
+    console.log(credentials)
+    this.props.login(credentials)
   }
 }

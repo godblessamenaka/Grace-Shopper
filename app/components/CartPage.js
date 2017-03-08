@@ -50,3 +50,4 @@ const CartPage = (props) => {
 }
 
 export default CartPage;
+
