@@ -8,7 +8,7 @@ const Product = (props) => (
     <CardMedia>
       <img src={props.image} />
     </CardMedia>
-    <CardTitle title={props.name} subtitle="Card subtitle" />
+    <CardTitle title={props.name} />
     <CardActions>
       <span style={{margin: 10}}>$ {props.price}</span>
       <FlatButton label="Buy" />
