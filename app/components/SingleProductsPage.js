@@ -36,6 +36,7 @@ export default function SingleProductsPage (props) {
           <h3>{starsArr}</h3>
           <SelectField
           floatingLabelText="Quantity"
+          floatingLabelStyle={{color: 'white'}}
           value={props.quantity}
           onChange={props.handleQuantityChange}
           disabled = {!product.inventory}
