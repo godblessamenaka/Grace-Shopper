@@ -27,8 +27,8 @@ export default function SingleProductsPage (props) {
   return (
     <div>
       <div className="row">
-        <div className="col-md-4 col-md-offset-2">
-          <img src={'images/' + product.image} />
+        <div className="col-xs-4 col-xs-offset-2">
+          <img className="img-responsive" src={'/images/main bottles/' + product.image} />
         </div>
         <div className="col-md-4">
           <h2>{product.name}</h2>

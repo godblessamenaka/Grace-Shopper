@@ -13,7 +13,7 @@ const buttonStyle = {
 const Header = () => {
   return (
     <div>
-        <nav className ="navbar navbar-default">
+        <nav className ="navbar navbar-default" style={{backgroundColor: '#262532'}}>
           <div className ="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand" href="#"><img src = {logo} /></a>

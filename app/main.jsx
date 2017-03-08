@@ -21,9 +21,27 @@ import OrdersPageContainer from './containers/OrdersPageContainer'
 import CartPageContainer from './containers/CartPageContainer'
 import SingleProductsPageContainer from './containers/SingleProductsPageContainer'
 
-
-//material ui fix for tap events
+//material ui
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const muiTheme = getMuiTheme({palette: {
+    primary1Color: '#891548',
+    primary2Color: '#5f1d3c',
+    primary3Color: '#515062',
+    accent1Color: '#891548',
+    accent2Color: '#88869c',
+    accent3Color: '#515062',
+    textColor: '#f5f5f5',
+    alternateTextColor: '#f5f5f5',
+    canvasColor: '#262532',
+    borderColor: '#515062'
+  }
+})
+
+
+
 
 
 /*const ExampleApp = connect(
@@ -49,10 +67,12 @@ const onUserAccountEnter = function(nextRouterState){
     fetchOrdersByUser(nextRouterState.params.userId)(store.dispatch)
 }
 
+//material ui fix for tap events
 injectTapEventPlugin();
 
 
 render(
+  <MuiThemeProvider muiTheme={muiTheme}>
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} onEnter={onAppEnter} >
@@ -69,6 +89,7 @@ render(
         <IndexRedirect to="/home" />
       </Route>
     </Router>
-  </Provider>,
+  </Provider>
+  </MuiThemeProvider>,
   document.getElementById('main')
 )
