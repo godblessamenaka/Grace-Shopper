@@ -28,7 +28,6 @@ const Order = db.define('orders', {
           .then((orderLines) => {
             if (orderLines) {
               const total = orderLines.reduce((sum, line) => sum + line.price, 0)
-              console.log(total)
               return total
             }
           })

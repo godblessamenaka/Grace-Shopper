@@ -2,7 +2,6 @@ import Reviews from '../components/Reviews';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-	console.log(state);
   return {
     reviews: state.reviews
   }

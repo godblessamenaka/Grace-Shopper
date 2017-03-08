@@ -76,7 +76,6 @@ export default class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const actions = [
       <RaisedButton
         label="join with Google"
@@ -163,7 +162,6 @@ export default class Login extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value
     };
-    console.log(credentials)
     this.props.login(credentials)
   }
 }

@@ -15,8 +15,6 @@ function MultipleProducts (props){
     }
   }
 
-  console.log(products);
-
   const image = '/images/main bottles/'
 
   const style = {

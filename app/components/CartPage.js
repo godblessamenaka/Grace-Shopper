@@ -15,7 +15,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const CartPage = (props) => {
   const productsInCart = props.productsInCart;
-  console.log('here are the contents of your cart: ', productsInCart)
   const RowsFromProducts = productsInCart.map(function(product){
     return (
       <TableRow key={product.id}>
