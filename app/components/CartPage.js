@@ -18,7 +18,7 @@ const CartPage = (props) => {
   const RowsFromProducts = productsInCart.map(function(product){
     return (
       <TableRow key={product.id}>
-            <TableRowColumn><img src={'/images/main bottles' + product.image} /> </TableRowColumn>
+            <TableRowColumn><img src={'/images/main bottles/' + product.image} /> </TableRowColumn>
             <TableRowColumn>{product.name}</TableRowColumn>
             <TableRowColumn>{product.price}</TableRowColumn>
             <TableRowColumn>{product.quantity}</TableRowColumn>
