@@ -78,6 +78,7 @@ export default class Login extends React.Component {
   render() {
     const actions = [
       <RaisedButton
+        key={0}
         label="join with Google"
         href="/api/auth/google"
         primary={true}
@@ -86,6 +87,7 @@ export default class Login extends React.Component {
         <i className="fa fa-google" />
       </RaisedButton>,
       <RaisedButton
+        key={1}
         label="join with Twitter"
         href="/api/auth/twitter"
         primary={true}
@@ -94,11 +96,13 @@ export default class Login extends React.Component {
         <i className="fa fa-twitter" />
       </RaisedButton>,
       <FlatButton
+        key={2}
         label="Cancel"
         primary={true}
         onTouchTap={this.handleClose}
       />,
       <FlatButton
+        key={3}
         label="Submit"
         primary={true}
         keyboardFocused={true}
