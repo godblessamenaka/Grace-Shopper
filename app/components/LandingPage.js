@@ -22,7 +22,11 @@ class LandingPage extends Component {
 
     return (
       <div>
-        <img src="/images/potionbg.png" alt="" />
+        <div className="row">
+          <div className="col-md-12">
+          <img src="/images/potionbg.png" alt="" className="center-block" />
+          </div>
+        </div>
         <MultipleProductsContainer />
         <Search handleChange={this.handleChange} inputValue={inputValue} />
       </div>
