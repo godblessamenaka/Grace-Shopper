@@ -3,19 +3,17 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
 
 export default function App ({ children }) {
     return (
-      <MuiThemeProvider>
-      <div className="container-fluid">
-        <Header />
+
+      <div className="container-fluid" style={{backgroundColor: '#262532'}} >
+        <Header style={{backgroundColor: '#262532'}} />
         <div>
           { children }
         </div>
         <Footer />
       </div>
-      </MuiThemeProvider>
+
     )
 }

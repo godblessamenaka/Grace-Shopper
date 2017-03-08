@@ -17,7 +17,7 @@ function MultipleProducts (props){
 
   console.log(products);
 
-  const image = '/images/smoky_bottle.jpg'
+  const image = '/images/main bottles/'
 
   const style = {
     position: 'realative',
@@ -31,7 +31,7 @@ function MultipleProducts (props){
             <div className="col-xs-4" style={style} key={product.id}>
               <Link className="thumbnail" to={`/products/${product.id}`} >
                 <Product
-                  image={ image }
+                  image={ image + product.image}
                   name={ product.name }
                   description={ product.description }
                   price={ product.price }
