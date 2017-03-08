@@ -18,7 +18,6 @@ class LandingPage extends Component {
   render() {
     const inputValue = this.state.inputValue
     const filteredProducts = this.props.products.filter(product => product.name.match(inputValue))
-    console.log(filteredProducts);
 
     return (
       <div>
